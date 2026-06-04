@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alisey — Nous</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="alisey.css" />
+
+<style>
+  .founder-note {
+    position:relative; max-width:900px; margin:0 auto;
+    background:var(--paper); border:1px solid var(--line-cool);
+    border-top:4px solid var(--accent);
+    border-radius:var(--radius-lg); box-shadow:var(--shadow-sm);
+    padding:clamp(34px,5vw,60px); overflow:hidden;
+  }
+  .founder-note .wind-corner { position:absolute; top:-14px; right:-26px; height:96px; opacity:.16; pointer-events:none; }
+  .founder-note .eyebrow { color:var(--blue); }
+  .founder-note .qm-big { font-family:var(--font-display); font-size:88px; line-height:.5; color:var(--accent); display:block; height:40px; margin-top:8px; }
+  .founder-quote { font-family:var(--font-display); font-size:clamp(20px,2.05vw,27px); line-height:1.5; color:var(--navy); font-weight:500; letter-spacing:-.01em; }
+  .founder-quote p { margin-bottom:20px; text-align:justify; }
+  .founder-quote p:last-child { margin-bottom:0; }
+  .founder-quote .lead-in { color:var(--navy); font-weight:600; }
+  .founder-quote .punch { color:var(--blue); font-weight:600; }
+  .founder-points { list-style:none; padding:0; margin:4px 0 22px; display:flex; flex-direction:column; gap:18px; }
+  .founder-points li { position:relative; padding:18px 22px 18px 24px; font-family:var(--font-display); font-size:18px; line-height:1.6; font-weight:500; color:var(--navy); text-align:justify; background:#fbfcfd; border:1px solid var(--line-cool); border-left:3px solid var(--accent); border-radius:12px; }
+  .founder-points li b { font-weight:600; }
+  .founder-points li .pt-k { display:block; font-family:var(--font-mono); font-size:11px; letter-spacing:.07em; text-transform:uppercase; color:var(--blue); margin-bottom:8px; text-align:left; }
+  .founder-figures { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:34px; background:var(--line-cool); border:1px solid var(--line-cool); border-radius:14px; overflow:hidden; }
+  .ff { background:#fbfcfd; padding:20px 22px; }
+  .ff-n { font-family:var(--font-display); font-size:38px; font-weight:600; color:var(--navy); line-height:1; }
+  .ff-n span { color:var(--accent); font-size:.55em; vertical-align:super; }
+  .ff-l { font-size:13px; color:var(--ink-soft); line-height:1.45; margin-top:9px; }
+  .ff-l b { color:var(--navy); font-weight:600; }
+  @media (max-width:680px){ .founder-figures { grid-template-columns:1fr; } }
+
+  .founders { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:40px; }
+  .founder-card { display:flex; flex-direction:column; background:var(--paper); border:1px solid var(--line-cool); border-radius:var(--radius-lg); box-shadow:var(--shadow-sm); padding:30px 28px; }
+  .fc-head { display:flex; align-items:center; gap:14px; }
+  .fc-mono { width:48px; height:48px; flex:none; border-radius:50%; display:grid; place-items:center; background:var(--navy); color:#fff; font-family:var(--font-display); font-weight:600; font-size:17px; letter-spacing:.02em; }
+  .fc-name { font-family:var(--font-display); font-size:20px; font-weight:600; color:var(--navy); line-height:1.15; }
+  .fc-role { font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--blue); margin-top:4px; }
+  .fc-bio { color:var(--ink-soft); font-size:14.5px; line-height:1.6; margin:20px 0 18px; flex:1; }
+  .fc-tags { display:flex; flex-wrap:wrap; gap:8px; }
+  .fc-tags .tag { font-family:var(--font-mono); font-size:10.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--blue); background:var(--mist); border-radius:6px; padding:5px 9px; }
+  @media (max-width:920px){ .founders { grid-template-columns:1fr; max-width:560px; margin-left:auto; margin-right:auto; } }
+
+  .locations { display:grid; grid-template-columns:repeat(2,1fr); gap:22px; margin-top:40px; }
+  .loc-card { background:var(--paper); border:1px solid var(--line-cool); border-radius:var(--radius-lg); box-shadow:var(--shadow-sm); padding:30px; }
+  .loc-head { display:flex; align-items:center; gap:13px; }
+  .loc-ic { width:44px; height:44px; border-radius:12px; background:var(--mist); display:grid; place-items:center; flex:none; }
+  .loc-ic svg { width:21px; height:21px; stroke:var(--blue); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+  .loc-k { font-family:var(--font-mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--blue); }
+  .loc-title { font-family:var(--font-display); font-size:21px; font-weight:600; color:var(--navy); margin-top:2px; }
+  .loc-list { list-style:none; padding:0; margin:22px 0 0; display:flex; flex-direction:column; gap:13px; }
+  .loc-list li { position:relative; padding-left:24px; color:var(--ink-soft); line-height:1.5; font-size:14.5px; }
+  .loc-list li::before { content:""; position:absolute; left:4px; top:.55em; width:8px; height:8px; border-radius:50%; background:var(--accent); }
+  @media (max-width:760px){ .locations { grid-template-columns:1fr; } }
+
+  .team-pyramid { display:flex; flex-direction:column; align-items:center; gap:14px; margin-top:42px; }
+  .tp-row { width:100%; border-radius:16px; padding:24px 30px; color:#fff; text-align:center; }
+  .tp-row .tp-k { font-family:var(--font-mono); font-size:11px; letter-spacing:.09em; text-transform:uppercase; opacity:.82; }
+  .tp-row h3 { color:#fff; font-size:20px; margin-top:7px; }
+  .tp-row p { font-size:14px; margin-top:7px; opacity:.88; line-height:1.5; max-width:560px; margin-left:auto; margin-right:auto; }
+  .tp-top { background:linear-gradient(120deg,var(--navy-900),var(--navy-700)); max-width:56%; }
+  .tp-mid { background:linear-gradient(120deg,var(--navy-700),var(--blue)); max-width:76%; }
+  .tp-bot { background:linear-gradient(120deg,var(--blue),#3f8fc4); max-width:100%; }
+  .tp-roles { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px; }
+  .tp-roles span { font-family:var(--font-mono); font-size:11.5px; letter-spacing:.04em; background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.22); border-radius:999px; padding:6px 14px; }
+  @media (max-width:760px){ .tp-top, .tp-mid, .tp-bot { max-width:100%; } }
+</style>
+</head>
+<body>
+
+<!-- ============================== NAV ============================== -->
+<header class="nav" data-screen-label="Nav">
+  <div class="nav-inner">
+    <a href="Accueil.html"><img class="logo" src="assets/alisey-logo.png" alt="Alisey — Cap sur le BPO" /></a>
+    <nav class="nav-links">
+      <a href="Accueil.html">Accueil</a>
+      <a href="Accueil.html#services">Services</a>
+      <a href="Plateforme.html">Plateforme</a>
+      <a href="Démarche.html">Démarche</a>
+      <a href="Nous.html" class="active">Nous</a>
+      <a href="Accueil.html#references">Références</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-lock" href="Espace-client.html">Espace client</a>
+      <a class="btn btn-primary" href="Contact.html">Nous contacter</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================== PAGE HEADER ============================== -->
+<section class="page-head" data-screen-label="En-tête">
+  <svg class="wind wind-hero" viewBox="0 0 380 150" fill="none" aria-hidden="true" style="height:120px">
+    <path d="M40 24 H250 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#8bbfdf" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M10 58 H330 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#1b3a6b" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M55 92 H270 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#1b6fa8" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M30 126 H300 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#c9a84c" stroke-width="3.4" stroke-linecap="round"/>
+  </svg>
+  <div class="wrap">
+    <p class="eyebrow">Qui sommes-nous</p>
+    <h1>Une équipe, une exigence : <span class="mark">produire comme chez vous.</span></h1>
+    <p class="lead">Derrière Alisey, une structure de quarante personnes entièrement dédiée à la production comptable et sociale des cabinets français — pilotée par des professionnels du métier.</p>
+  </div>
+</section>
+
+<!-- ============================== MOT DE L'ÉQUIPE DIRIGEANTE ============================== -->
+<section class="section tight" data-screen-label="Mot des dirigeants">
+  <div class="wrap">
+    <div class="founder-note reveal">
+      <svg class="wind-corner" viewBox="0 0 380 150" fill="none" aria-hidden="true">
+        <path d="M40 24 H250 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#8bbfdf" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M10 58 H330 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#1b3a6b" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M55 92 H270 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#1b6fa8" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M30 126 H300 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#c9a84c" stroke-width="3.4" stroke-linecap="round"/>
+      </svg>
+      <p class="eyebrow">Le mot de l'équipe dirigeante</p>
+      <span class="qm-big">"</span>
+      <div class="founder-quote">
+        <p><span class="lead-in">Alisey n'est pas un cabinet. Ni une société d'externalisation. C'est, volontairement, les deux à la fois.</span></p>
+        <p>Nous sommes des experts-comptables, et nous avons conçu Alisey avec un spécialiste des processus d'externalisation et du BPO francophone. De cette rencontre est née une conviction simple : externaliser la comptabilité n'est pas qu'une affaire de cabinet, et ce n'est pas non plus une simple affaire de volume. C'est un métier à part entière — celui de produire les missions classiques du cabinet avec la même exigence, mais au sein d'une organisation entièrement pensée pour ça.</p>
+        <p>C'est pourquoi nous avons réuni le meilleur des deux mondes :</p>
+        <ul class="founder-points">
+          <li>
+            <span class="pt-k">La rigueur du cabinet</span>
+            Vos missions sont exécutées par des comptables expérimentés, qualifiés et formés à la comptabilité française. Chaque dossier reste sous la responsabilité d'un même comptable, <b>de bout en bout</b> — exactement comme chez vous. Les normes, les méthodes et les échéances françaises sont notre cadre de travail, jamais une option.
+          </li>
+          <li>
+            <span class="pt-k">La force de l'externalisation</span>
+            Des équipes dont la production est <b>l'unique métier</b> : concentrées, spécialisées et hautement productives. Des processus standardisés et largement automatisés, capables d'absorber les pics de charge et de tenir les délais. Une capacité à monter en puissance <b>sans recruter</b> et à coût maîtrisé — sans jamais déléguer le contrôle, qui reste entre vos mains.
+          </li>
+        </ul>
+        <p><span class="punch">Produire les missions classiques du cabinet, chez ceux qui ne font que ça — et qui le font mieux. Voilà pourquoi Alisey existe.</span></p>
+      </div>
+      <div class="founder-figures">
+        <div class="ff">
+          <div class="ff-n">2</div>
+          <div class="ff-l"><b>experts-comptables à la tête</b>, dont un diplômé en France, épaulés par un spécialiste des processus d'externalisation et du BPO francophone.</div>
+        </div>
+        <div class="ff">
+          <div class="ff-n">2<span>+</span></div>
+          <div class="ff-l">une <b>couche d'encadrement dédiée</b> au pilotage et au contrôle de la production.</div>
+        </div>
+        <div class="ff">
+          <div class="ff-n">40<span>+</span></div>
+          <div class="ff-l"><b>comptables expérimentés</b>, qualifiés et formés à la comptabilité française.</div>
+        </div>
+      </div>
+      <div class="signoff">
+        <div class="who">L'équipe dirigeante d'Alisey</div>
+        <div class="role">Experts-comptables · Spécialiste des processus BPO</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FONDATEURS ============================== -->
+<section class="section tight" data-screen-label="Fondateurs">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Les fondateurs</p>
+      <h2>Trois professionnels du métier, pas des intermédiaires.</h2>
+      <p class="lead">Deux experts-comptables et un spécialiste des processus d'externalisation, réunis autour d'une même exigence.</p>
+    </div>
+    <div class="founders">
+      <div class="founder-card reveal">
+        <div class="fc-head">
+          <span class="fc-mono">AL</span>
+          <div>
+            <div class="fc-name">Anis Laazouzi</div>
+            <div class="fc-role">Co-fondateur</div>
+          </div>
+        </div>
+        <p class="fc-bio">Expert-comptable mémorialiste, spécialisé en externalisation et en processus de BPO. Plus de vingt ans d'expérience au sein de structures d'offshoring et de BPO financier et de services au Maroc.</p>
+        <div class="fc-tags">
+          <span class="tag">Expert-comptable mémorialiste</span>
+          <span class="tag">+20 ans BPO &amp; offshoring</span>
+          <span class="tag">Processus d'externalisation</span>
+        </div>
+      </div>
+
+      <div class="founder-card reveal">
+        <div class="fc-head">
+          <span class="fc-mono">YM</span>
+          <div>
+            <div class="fc-name">Yassine Mbarech</div>
+            <div class="fc-role">Co-fondateur</div>
+          </div>
+        </div>
+        <p class="fc-bio">Expert-comptable diplômé de France, ainsi qu'expert-comptable et commissaire aux comptes inscrit à l'Ordre des experts-comptables au Maroc. Fondateur et gérant du cabinet INNOVEXPERT.</p>
+        <div class="fc-tags">
+          <span class="tag">Diplômé de France (DEC)</span>
+          <span class="tag">Expert-comptable &amp; CAC (Maroc)</span>
+          <span class="tag">Fondateur &amp; gérant · INNOVEXPERT</span>
+        </div>
+      </div>
+
+      <div class="founder-card reveal">
+        <div class="fc-head">
+          <span class="fc-mono">ML</span>
+          <div>
+            <div class="fc-name">Mohamed Amine Lahgazi</div>
+            <div class="fc-role">Co-fondateur</div>
+          </div>
+        </div>
+        <p class="fc-bio">Expert-comptable et commissaire aux comptes diplômé, inscrit à l'Ordre des experts-comptables au Maroc. Forte expérience en cabinets internationaux et auprès de sociétés marocaines. Fondateur et gérant du cabinet Leading Partner.</p>
+        <div class="fc-tags">
+          <span class="tag">Expert-comptable &amp; CAC</span>
+          <span class="tag">Cabinets internationaux</span>
+          <span class="tag">Fondateur · Leading Partner</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== LOCAUX ============================== -->
+<section class="section sand" data-screen-label="Locaux">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Nos locaux</p>
+      <h2>Deux adresses à Casablanca.</h2>
+      <p class="lead">Des bureaux pensés pour la concentration et la production — pas un open-space de centre d'appels.</p>
+    </div>
+    <div class="locations">
+      <div class="loc-card reveal">
+        <div class="loc-head">
+          <span class="loc-ic"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div>
+            <div class="loc-k">Site 01</div>
+            <div class="loc-title">Casa Offshore</div>
+          </div>
+        </div>
+        <ul class="loc-list">
+          <li>À côté de la zone de Casa Offshore (Casanearshore).</li>
+          <li>Au cœur du hub marocain de l'externalisation et du BPO.</li>
+        </ul>
+      </div>
+      <div class="loc-card reveal">
+        <div class="loc-head">
+          <span class="loc-ic"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div>
+            <div class="loc-k">Site 02</div>
+            <div class="loc-title">Centre-ville · Abdelmoumen</div>
+          </div>
+        </div>
+        <ul class="loc-list">
+          <li>Pas loin du centre-ville, à côté d'Abdelmoumen.</li>
+          <li>Facile d'accès, au cœur de Casablanca.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== ÉQUIPES ============================== -->
+<section class="section" data-screen-label="Équipes">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Nos équipes</p>
+      <h2>Une organisation en couches, du contrôle à chaque niveau.</h2>
+      <p class="lead">Des profils qualifiés, formés aux normes françaises et organisés en pôles dédiés — avec une supervision et un encadrement qui sécurisent la production à chaque étage.</p>
+    </div>
+    <div class="team-pyramid">
+      <div class="tp-row tp-top reveal">
+        <div class="tp-k">Niveau 03 · Direction</div>
+        <h3>Les fondateurs</h3>
+        <p>Encadrement et contrôle final : deux experts-comptables et un spécialiste des processus d'externalisation.</p>
+      </div>
+      <div class="tp-row tp-mid reveal">
+        <div class="tp-k">Niveau 02 · Supervision</div>
+        <h3>Superviseurs</h3>
+        <p>Pilotage quotidien, double contrôle et qualité de la production.</p>
+      </div>
+      <div class="tp-row tp-bot reveal">
+        <div class="tp-k">Niveau 01 · Production</div>
+        <h3>Les opérateurs</h3>
+        <p>La production au quotidien, aux standards français.</p>
+        <div class="tp-roles">
+          <span>Opérateurs comptables</span>
+          <span>Opérateurs paie</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== ORGANISATION ============================== -->
+<section class="section mist" data-screen-label="Organisation">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Notre organisation</p>
+      <h2>Une production structurée, pas improvisée.</h2>
+      <p class="lead">Chaque dossier suit un circuit clair : un producteur, un réviseur, un point de contact. La plateforme relie le tout à votre cabinet, en continu.</p>
+    </div>
+    <div class="org-grid" style="margin-top:40px">
+      <div class="org-card">
+        <div class="n">01</div>
+        <h3>Pôles dédiés</h3>
+        <p>Comptable, social et missions sur mesure : des équipes spécialisées par nature de mission.</p>
+      </div>
+      <div class="org-card">
+        <div class="n">02</div>
+        <h3>Double contrôle</h3>
+        <p>Un producteur, un réviseur. Rien ne sort sans une validation par un second regard.</p>
+      </div>
+      <div class="org-card">
+        <div class="n">03</div>
+        <h3>Un interlocuteur</h3>
+        <p>Un référent par cabinet, joignable par mail ou WhatsApp, qui connaît vos dossiers.</p>
+      </div>
+      <div class="org-card">
+        <div class="n">04</div>
+        <h3>Pilotage plateforme</h3>
+        <p>Avancement, reporting et échanges centralisés et tracés, accessibles à votre cabinet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CTA CONTACT ============================== -->
+<section class="section" data-screen-label="Contact">
+  <div class="wrap">
+    <div class="cta-band">
+      <svg class="wind wind-cta wind-hero" viewBox="0 0 380 150" fill="none" aria-hidden="true" style="height:120px">
+        <path d="M40 24 H250 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#8bbfdf" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M10 58 H330 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#aad0e8" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M55 92 H270 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#1b6fa8" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M30 126 H300 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#c9a84c" stroke-width="3.4" stroke-linecap="round"/>
+      </svg>
+      <div style="max-width:560px;position:relative">
+        <p class="eyebrow plain" style="color:var(--sky)">Faisons connaissance</p>
+        <h2>Envie de rencontrer l'équipe ?</h2>
+        <p class="lead" style="color:#cdd9ea;margin-top:16px">Un premier échange suffit pour mesurer le sérieux de la structure. Sans engagement.</p>
+        <div style="display:flex;gap:14px;margin-top:30px;flex-wrap:wrap">
+          <a class="btn btn-gold" href="Contact.html">Demander un échange</a>
+          <a class="btn btn-light" href="Accueil.html#services">Voir nos services</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="footer" data-screen-label="Footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <img class="logo" src="assets/alisey-logo-light.png" alt="Alisey" />
+        <p>L'externalisation comptable et sociale aux standards français. Cap sur le BPO — le vent dans le dos.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="Accueil.html">Accueil</a></li>
+          <li><a href="Accueil.html#services">Services</a></li>
+          <li><a href="Démarche.html">Démarche &amp; philosophie</a></li>
+          <li><a href="Nous.html">Nous</a></li>
+          <li><a href="Accueil.html#references">Références</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="Contact.html">Formulaire de contact</a></li>
+          <li><a href="#">WhatsApp professionnel</a></li>
+          <li><a href="#">Casablanca · Maroc</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Accès</h4>
+        <ul>
+          <li><a href="Espace-client.html">Espace client</a></li>
+          <li><a href="#">Connexion plateforme</a></li>
+          <li><a href="#">Mentions légales</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Alisey — Cap sur le BPO. Tous droits réservés.</span>
+      <span class="chips">
+        <span class="chip on-dark">Conforme RGPD</span>
+        <span class="chip on-dark">Standards français</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

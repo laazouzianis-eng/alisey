@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alisey — Nous contacter</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="alisey.css" />
+<style>
+  /* ============================================================
+     Page Contact — formulaire
+     ============================================================ */
+  .contact-wrap {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .contact-aside .lead { margin-top: 18px; }
+  .contact-points { list-style: none; padding: 0; margin: 34px 0 0; display: flex; flex-direction: column; gap: 18px; }
+  .contact-points li { display: flex; gap: 14px; align-items: flex-start; }
+  .contact-points .ic {
+    width: 40px; height: 40px; flex: none; border-radius: 11px;
+    background: var(--mist); border: 1px solid var(--line-cool);
+    display: grid; place-items: center;
+  }
+  .contact-points .ic svg { width: 19px; height: 19px; stroke: var(--blue); fill: none; stroke-width: 2; }
+  .contact-points .t { font-weight: 700; color: var(--navy); font-size: 15.5px; }
+  .contact-points .d { color: var(--ink-soft); font-size: 14.5px; line-height: 1.5; }
+
+  /* ---- la carte formulaire ---- */
+  .form-card {
+    background: #fff;
+    border: 1px solid var(--line-cool);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    box-shadow: var(--shadow);
+  }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  .field.full { grid-column: 1 / -1; }
+  .field label {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .field label .req { color: var(--gold-600); margin-left: 3px; }
+  .field input,
+  .field textarea {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1.5px solid var(--line-cool);
+    border-radius: var(--radius-sm);
+    padding: 13px 15px;
+    width: 100%;
+    transition: border-color .16s ease, box-shadow .16s ease;
+    -webkit-appearance: none;
+  }
+  .field textarea { resize: vertical; min-height: 140px; line-height: 1.55; }
+  .field input::placeholder,
+  .field textarea::placeholder { color: var(--ink-faint); }
+  .field input:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 4px rgba(27,111,168,.14);
+  }
+  .form-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 26px;
+    flex-wrap: wrap;
+  }
+  .form-foot .note { font-size: 13px; color: var(--ink-faint); max-width: 340px; line-height: 1.5; }
+  .form-card .btn-primary { font-size: 16px; padding: 15px 26px; }
+  .form-card .btn-primary[disabled] { opacity: .6; cursor: progress; transform: none; }
+  .form-error {
+    display: none;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #c0392b;
+    background: rgba(192,57,43,.07);
+    border: 1px solid rgba(192,57,43,.25);
+    border-radius: var(--radius-sm);
+    padding: 11px 14px;
+  }
+  .form-error.show { display: block; }
+
+  /* ---- message de confirmation ---- */
+  .form-sent {
+    display: none;
+    text-align: center;
+    padding: 26px 10px;
+  }
+  .form-sent.show { display: block; }
+  .form-sent .check {
+    width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 22px;
+    background: rgba(43,191,122,.12); border: 1.5px solid rgba(43,191,122,.4);
+    display: grid; place-items: center;
+  }
+  .form-sent .check svg { width: 30px; height: 30px; stroke: #2bbf7a; fill: none; stroke-width: 2.4; }
+  .form-sent h3 { font-size: 26px; margin-bottom: 12px; }
+  .form-sent p { color: var(--ink-soft); max-width: 420px; margin: 0 auto; }
+  .form-sent .btn { margin-top: 26px; }
+
+  @media (max-width: 920px) {
+    .contact-wrap { grid-template-columns: 1fr; gap: 40px; }
+    .form-card { padding: 28px; }
+    .form-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================== NAV ============================== -->
+<header class="nav" data-screen-label="Nav">
+  <div class="nav-inner">
+    <a href="Accueil.html"><img class="logo" src="assets/alisey-logo.png" alt="Alisey — Cap sur le BPO" /></a>
+    <nav class="nav-links">
+      <a href="Accueil.html">Accueil</a>
+      <a href="Accueil.html#services">Services</a>
+      <a href="Plateforme.html">Plateforme</a>
+      <a href="Démarche.html">Démarche</a>
+      <a href="Nous.html">Nous</a>
+      <a href="Accueil.html#references">Références</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-lock" href="Espace-client.html">Espace client</a>
+      <a class="btn btn-primary active" href="Contact.html">Nous contacter</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================== CONTACT ============================== -->
+<section class="section" data-screen-label="Contact — Formulaire">
+  <div class="wrap">
+    <div class="contact-wrap">
+
+      <!-- Colonne gauche : intro -->
+      <div class="contact-aside">
+        <p class="eyebrow">Parlons-en</p>
+        <h1 style="font-size:clamp(34px,4vw,52px)">Nous contacter</h1>
+        <p class="lead">Décrivez-nous votre charge de production et votre organisation. Nous revenons vers vous rapidement pour un premier échange — sans engagement.</p>
+
+        <ul class="contact-points">
+          <li>
+            <span class="ic"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg></span>
+            <span>
+              <span class="t">Réponse sous 48 h</span>
+              <span class="d" style="display:block">Un interlocuteur dédié reprend contact par mail.</span>
+            </span>
+          </li>
+          <li>
+            <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.5 7.5 8 10 4.5-2.5 8-5 8-10V6z"/></svg></span>
+            <span>
+              <span class="t">Données protégées</span>
+              <span class="d" style="display:block">Vos informations restent confidentielles, conformes RGPD.</span>
+            </span>
+          </li>
+          <li>
+            <span class="ic"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+            <span>
+              <span class="t">Un dossier test</span>
+              <span class="d" style="display:block">Jugez sur pièce avant toute décision.</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Colonne droite : formulaire -->
+      <div class="form-card">
+        <form id="contact-form" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="f-nom">Votre nom<span class="req">*</span></label>
+              <input type="text" id="f-nom" name="nom" placeholder="Prénom et nom" required autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="f-email">Adresse mail<span class="req">*</span></label>
+              <input type="email" id="f-email" name="email" placeholder="vous@cabinet.fr" required autocomplete="email" />
+            </div>
+            <div class="field full">
+              <label for="f-org">Nom de l'organisme<span class="req">*</span></label>
+              <input type="text" id="f-org" name="organisme" placeholder="Cabinet, entreprise ou structure" required autocomplete="organization" />
+            </div>
+            <div class="field full">
+              <label for="f-msg">Votre demande<span class="req">*</span></label>
+              <textarea id="f-msg" name="message" placeholder="Décrivez votre besoin, votre volume de dossiers, vos échéances…" required></textarea>
+            </div>
+          </div>
+
+          <div class="form-foot">
+            <p class="note">En envoyant ce formulaire, votre message nous est transmis directement par courriel.</p>
+            <button type="submit" class="btn btn-primary" id="f-submit">Envoyer ma demande</button>
+          </div>
+          <p class="form-error" id="form-error"></p>
+        </form>
+
+        <!-- confirmation -->
+        <div class="form-sent" id="form-sent">
+          <div class="check"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h3>Message envoyé, merci&nbsp;!</h3>
+          <p>Votre demande a bien été transmise à notre équipe. Nous revenons vers vous rapidement, par mail, pour un premier échange.</p>
+          <a class="btn btn-ghost" href="Accueil.html">Retour à l'accueil</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="footer" data-screen-label="Footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <img class="logo" src="assets/alisey-logo-light.png" alt="Alisey" />
+        <p>L'externalisation comptable et sociale aux standards français. Cap sur le BPO — le vent dans le dos.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="Accueil.html">Accueil</a></li>
+          <li><a href="Accueil.html#services">Services</a></li>
+          <li><a href="Plateforme.html">Plateforme</a></li>
+          <li><a href="Démarche.html">Démarche &amp; philosophie</a></li>
+          <li><a href="Nous.html">Nous</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="Contact.html">Formulaire de contact</a></li>
+          <li><a href="#">WhatsApp professionnel</a></li>
+          <li><a href="#">Casablanca · Maroc</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Accès</h4>
+        <ul>
+          <li><a href="Espace-client.html">Espace client</a></li>
+          <li><a href="#">Connexion plateforme</a></li>
+          <li><a href="#">Mentions légales</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Alisey — Cap sur le BPO. Tous droits réservés.</span>
+      <span class="chips">
+        <span class="chip on-dark">Conforme RGPD</span>
+        <span class="chip on-dark">Standards français</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var ACCESS_KEY = "f089b80c-a029-4ef9-83dc-133fb731e9a9";
+    var DEST = "Laazouzi.anis@gmail.com";
+
+    var form = document.getElementById("contact-form");
+    var sent = document.getElementById("form-sent");
+    var btn = document.getElementById("f-submit");
+    var errBox = document.getElementById("form-error");
+
+    function showError(txt) {
+      errBox.textContent = txt;
+      errBox.classList.add("show");
+    }
+    function showSuccess() {
+      form.style.display = "none";
+      errBox.classList.remove("show");
+      sent.classList.add("show");
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      errBox.classList.remove("show");
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      var nom = form.nom.value.trim();
+      var email = form.email.value.trim();
+      var org = form.organisme.value.trim();
+      var msg = form.message.value.trim();
+
+      /* Clé absente : repli sur la messagerie du visiteur */
+      if (!ACCESS_KEY) {
+        var subject = "Demande de contact — " + nom + " (" + org + ")";
+        var body =
+          "Nom : " + nom + "\n" +
+          "Adresse mail : " + email + "\n" +
+          "Organisme : " + org + "\n\n" +
+          "Demande :\n" + msg + "\n";
+        window.location.href =
+          "mailto:" + DEST +
+          "?subject=" + encodeURIComponent(subject) +
+          "&body=" + encodeURIComponent(body);
+        showSuccess();
+        return;
+      }
+
+      /* Envoi direct via Web3Forms */
+      btn.disabled = true;
+      var original = btn.textContent;
+      btn.textContent = "Envoi en cours…";
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          access_key: ACCESS_KEY,
+          subject: "Demande de contact — " + nom + " (" + org + ")",
+          from_name: nom,
+          name: nom,
+          email: email,
+          organisme: org,
+          message: msg
+        })
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (data.success) {
+            showSuccess();
+          } else {
+            showError("Une erreur est survenue lors de l'envoi. Réessayez ou écrivez-nous directement à " + DEST + ".");
+            btn.disabled = false;
+            btn.textContent = original;
+          }
+        })
+        .catch(function () {
+          showError("Impossible d'envoyer le message (connexion). Réessayez ou écrivez-nous directement à " + DEST + ".");
+          btn.disabled = false;
+          btn.textContent = original;
+        });
+    });
+  })();
+</script>
+
+</body>
+</html>

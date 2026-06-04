@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alisey — Démarche &amp; philosophie</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="alisey.css" />
+
+<style>
+  .method-trio { display:flex; flex-direction:column; gap:16px; margin-top:18px; }
+  .method-trio > div { padding-left:16px; border-left:2px solid var(--line-cool); }
+  .method-trio .mt-k { font-family:var(--font-display); font-size:18px; font-weight:600; color:var(--navy); }
+  .method-trio p { font-size:13.5px; color:var(--ink-soft); line-height:1.5; margin-top:3px; }
+
+  .pillars { display:flex; flex-direction:column; gap:18px; margin-top:44px; }
+  .pillar {
+    display:grid; grid-template-columns:90px 1fr; gap:28px; align-items:start;
+    background:var(--paper); border:1px solid var(--line-cool); border-radius:var(--radius-lg);
+    padding:32px 34px; box-shadow:var(--shadow-sm); position:relative; overflow:hidden;
+  }
+  .pillar::before {
+    content:""; position:absolute; left:0; top:26px; bottom:26px; width:4px;
+    border-radius:0 4px 4px 0; background:linear-gradient(var(--sky), var(--accent));
+  }
+  .pillar.is-opt::before { background:linear-gradient(var(--gold), var(--gold-600)); }
+  .pillar .p-num { font-family:var(--font-display); font-size:52px; font-weight:600; color:var(--accent); line-height:1; }
+  .pillar.is-opt .p-num { color:var(--gold-600); }
+  .pillar .p-step { font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--blue); margin-bottom:7px; display:block; }
+  .pillar h3 { font-size:23px; display:inline; }
+  .pillar .p-opt { font-family:var(--font-mono); font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--gold-600); background:var(--gold-soft); border-radius:999px; padding:4px 10px; margin-left:11px; white-space:nowrap; }
+  .pillar .p-lead { color:var(--ink-soft); line-height:1.55; margin-top:9px; max-width:780px; }
+  .p-duo {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:22px;
+    background:var(--line-cool); border:1px solid var(--line-cool); border-radius:12px; overflow:hidden;
+  }
+  .p-cell { background:#fbfcfd; padding:15px 17px; }
+  .p-cell .lbl { font-family:var(--font-mono); font-size:10.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--navy); display:flex; align-items:center; gap:8px; }
+  .p-cell .lbl .d { width:8px; height:8px; border-radius:50%; flex:none; }
+  .p-cell .d.tech { background:var(--sky); }
+  .p-cell .d.human { background:var(--gold); }
+  .p-cell .d.ctrl { background:#15875a; }
+  .p-cell p { font-size:13px; color:var(--ink-soft); line-height:1.45; margin-top:9px; }
+
+  .principles { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:40px; }
+  .principle { background:var(--paper); border:1px solid var(--line-cool); border-radius:var(--radius); padding:28px; }
+  .principle .pr-ic { width:42px; height:42px; border-radius:11px; background:var(--mist); display:grid; place-items:center; margin-bottom:16px; }
+  .principle .pr-ic svg { width:21px; height:21px; stroke:var(--blue); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+  .principle h3 { font-size:18px; margin-bottom:8px; }
+  .principle p { color:var(--ink-soft); font-size:14.5px; line-height:1.55; }
+
+  @media (max-width:760px){
+    .pillar { grid-template-columns:1fr; gap:6px; padding:26px; }
+    .p-duo { grid-template-columns:1fr; }
+    .principles { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================== NAV ============================== -->
+<header class="nav" data-screen-label="Nav">
+  <div class="nav-inner">
+    <a href="Accueil.html"><img class="logo" src="assets/alisey-logo.png" alt="Alisey — Cap sur le BPO" /></a>
+    <nav class="nav-links">
+      <a href="Accueil.html">Accueil</a>
+      <a href="Accueil.html#services">Services</a>
+      <a href="Plateforme.html">Plateforme</a>
+      <a href="Démarche.html" class="active">Démarche</a>
+      <a href="Nous.html">Nous</a>
+      <a href="Accueil.html#references">Références</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-lock" href="Espace-client.html">Espace client</a>
+      <a class="btn btn-primary" href="Contact.html">Nous contacter</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================== PAGE HEADER ============================== -->
+<section class="page-head" data-screen-label="En-tête">
+  <svg class="wind wind-hero" viewBox="0 0 380 150" fill="none" aria-hidden="true" style="height:120px">
+    <path d="M40 24 H250 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#8bbfdf" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M10 58 H330 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#1b3a6b" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M55 92 H270 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#1b6fa8" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M30 126 H300 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#c9a84c" stroke-width="3.4" stroke-linecap="round"/>
+  </svg>
+  <div class="wrap">
+    <p class="eyebrow">Démarche &amp; philosophie</p>
+    <h1>Une production <span class="mark">maîtrisée, étape par étape.</span></h1>
+    <p class="lead">Cinq piliers clairs, du diagnostic à la rétrocession. À chaque étape, l'humain et l'IA travaillent ensemble : on automatise le répétitif, on réserve l'intelligence humaine à l'essentiel — et vous gardez le contrôle de bout en bout.</p>
+  </div>
+</section>
+
+<!-- ============================== PHILOSOPHIE ============================== -->
+<section class="section tight" data-screen-label="Philosophie">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Notre philosophie</p>
+      <div class="lead-quote">
+        <p>« Nous sommes le prolongement de vos équipes — pas une plateforme anonyme, pas un algorithme. Des profils qualifiés, concentrés et formés aux normes françaises.</p>
+        <p>Notre métier n'est pas de vous remplacer, mais de produire comme chez vous : avec la même exigence, la même rigueur, et sans jamais vous faire perdre la main sur vos dossiers. »</p>
+      </div>
+      <div class="signoff">
+        <div class="who">L'équipe Alisey</div>
+        <div class="role">Cap sur le BPO · le vent dans le dos</div>
+      </div>
+    </div>
+    <div class="role-visual">
+      <span class="chip-mono">Notre logique, à chaque étape</span>
+      <div class="method-trio">
+        <div>
+          <span class="mt-k">Faire</span>
+          <p>Automatiser le répétitif et intégrer les outils entre eux ; réserver l'intelligence humaine à l'analyse.</p>
+        </div>
+        <div>
+          <span class="mt-k">Contrôler</span>
+          <p>Garder la main à chaque étape, avec un double regard producteur / réviseur tracé.</p>
+        </div>
+        <div>
+          <span class="mt-k">Reporter</span>
+          <p>Restituer en continu l'avancement et la qualité, en toute transparence.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== DÉMARCHE (5 piliers) ============================== -->
+<section class="section mist" id="demarche" data-screen-label="Démarche">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Notre démarche</p>
+      <h2>Cinq piliers, une production sous contrôle.</h2>
+      <p class="lead">Du diagnostic à la rétrocession, chaque pilier associe l'humain, la technologie et l'IA. Le répétitif est automatisé, l'intelligence humaine se concentre sur l'analyse — et le contrôle reste à chaque étape : faire, contrôler, reporter.</p>
+    </div>
+
+    <div class="pillars">
+
+      <div class="pillar reveal">
+        <div class="p-num">01</div>
+        <div class="p-body">
+          <span class="p-step">Pilier 01</span>
+          <h3>Diagnostic du portefeuille &amp; cadrage</h3>
+          <p class="p-lead">Nous analysons votre portefeuille, vos méthodes et vos volumes pour calibrer l'organisation, dimensionner les équipes et anticiper la charge avant tout démarrage.</p>
+          <div class="p-duo">
+            <div class="p-cell"><span class="lbl"><span class="d tech"></span>Automatisé</span><p>Inventaire des dossiers, lecture des volumes et des récurrences.</p></div>
+            <div class="p-cell"><span class="lbl"><span class="d human"></span>Intelligence humaine</span><p>Lecture des risques, cadrage des méthodes et des priorités avec vous.</p></div>
+            <div class="p-cell"><span class="lbl"><span class="d ctrl"></span>Contrôle</span><p>Un plan de reprise validé ensemble avant le moindre traitement.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pillar reveal">
+        <div class="p-num">02</div>
+        <div class="p-body">
+          <span class="p-step">Pilier 02</span>
+          <h3>Transfert</h3>
+          <p class="p-lead">Reprise structurée de vos dossiers, pièces et historiques — outils intégrés les uns aux autres, sans rupture ni perte d'information pour vos clients.</p>
+          <div class="p-duo">
+            <div class="p-cell"><span class="lbl"><span class="d tech"></span>Automatisé</span><p>Import et rapprochement des données, connexion des outils entre eux.</p></div>
+            <div class="p-cell"><span class="lbl"><span class="d human"></span>Intelligence humaine</span><p>Vérification de la complétude et reprise de l'historique.</p></div>
+            <div class="p-cell"><span class="lbl"><span class="d ctrl"></span>Contrôle</span><p>Réconciliation pièce à pièce avant la bascule en production.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pillar reveal">
+        <div class="p-num">03</div>
+        <div class="p-body">
+          <span class="p-step">Pilier 03</span>
+          <h3>Mise en production</h3>
+          <p class="p-lead">La production tourne aux standards français : le répétitif est automatisé, l'intelligence humaine se concentre sur l'analyse, le jugement comptable et la révision.</p>
+          <div class="p-duo">
+            <div class="p-cell"><span class="lbl"><span class="d tech"></span>Automatisé</span><p>Saisies, écritures récurrentes et contrôles de cohérence.</p></div>
+            <div class="p-cell"><span class="lbl"><span class="d human"></span>Intelligence humaine</span><p>Révision, jugement comptable et arbitrages métier.</p></div>
+            <div class="p-cell"><span class="lbl"><span class="d ctrl"></span>Contrôle</span><p>Double regard producteur / réviseur, tracé sur la plateforme.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pillar reveal">
+        <div class="p-num">04</div>
+        <div class="p-body">
+          <span class="p-step">Pilier 04</span>
+          <h3>Reporting &amp; retour d'expérience</h3>
+          <p class="p-lead">Nous reportons en continu et tirons les enseignements de chaque cycle pour améliorer le suivant. C'est la boucle qui ferme la maîtrise : faire, contrôler, reporter.</p>
+          <div class="p-duo">
+            <div class="p-cell"><span class="lbl"><span class="d tech"></span>Automatisé</span><p>Indicateurs d'avancement et de qualité consolidés en temps réel.</p></div>
+            <div class="p-cell"><span class="lbl"><span class="d human"></span>Intelligence humaine</span><p>Lecture des écarts, recommandations et point de pilotage régulier.</p></div>
+            <div class="p-cell"><span class="lbl"><span class="d ctrl"></span>Contrôle</span><p>Un reporting partagé et des décisions tracées, accessibles à votre cabinet.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pillar is-opt reveal">
+        <div class="p-num">05</div>
+        <div class="p-body">
+          <span class="p-step">Pilier 05</span>
+          <h3>Rétrocession<span class="p-opt">Si le cas se présente</span></h3>
+          <p class="p-lead">Si vous le souhaitez, restitution complète et ordonnée du dossier à votre cabinet — vous gardez la main, à tout moment et de bout en bout.</p>
+          <div class="p-duo">
+            <div class="p-cell"><span class="lbl"><span class="d tech"></span>Automatisé</span><p>Export structuré des données et des pièces.</p></div>
+            <div class="p-cell"><span class="lbl"><span class="d human"></span>Intelligence humaine</span><p>Passation accompagnée et documentation tenue à jour.</p></div>
+            <div class="p-cell"><span class="lbl"><span class="d ctrl"></span>Contrôle</span><p>Rien ne se perd : tout est tracé et vérifié à la restitution.</p></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PRINCIPES TRANSVERSES ============================== -->
+<section class="section" data-screen-label="Principes">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Au-delà des étapes</p>
+      <h2>Des principes qui traversent chaque pilier.</h2>
+      <p class="lead">Une même exigence d'organisation, de rigueur et de simplicité, présente du premier au dernier pilier.</p>
+    </div>
+    <div class="principles">
+      <div class="principle reveal">
+        <div class="pr-ic"><svg viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M10 19v-7"/><path d="M16 19V9"/><path d="M22 19H2"/></svg></div>
+        <h3>Anticiper &amp; lisser</h3>
+        <p>Nous nous organisons pour éviter les goulets d'étranglement et lisser la production dans le temps. La charge est anticipée, jamais subie.</p>
+      </div>
+      <div class="principle reveal">
+        <div class="pr-ic"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
+        <h3>Relancer, et garder la trace</h3>
+        <p>Une relance, puis une seconde, de façon structurée. Chaque demande de pièce ou d'information est tracée et rattachée au bon dossier.</p>
+      </div>
+      <div class="principle reveal">
+        <div class="pr-ic"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M15 11l2 2 4-4"/></svg></div>
+        <h3>Le client final, acteur du process</h3>
+        <p>Nous facilitons la vie de votre client par des formulaires simples et évitons, autant que possible, les saisies multiples et répétitives.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CTA CONTACT ============================== -->
+<section class="section" data-screen-label="Contact">
+  <div class="wrap">
+    <div class="cta-band">
+      <svg class="wind wind-cta wind-hero" viewBox="0 0 380 150" fill="none" aria-hidden="true" style="height:120px">
+        <path d="M40 24 H250 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#8bbfdf" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M10 58 H330 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#aad0e8" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M55 92 H270 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#1b6fa8" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M30 126 H300 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#c9a84c" stroke-width="3.4" stroke-linecap="round"/>
+      </svg>
+      <div style="max-width:560px;position:relative">
+        <p class="eyebrow plain" style="color:var(--sky)">Passons à la pratique</p>
+        <h2>Voyons comment intégrer votre portefeuille.</h2>
+        <p class="lead" style="color:#cdd9ea;margin-top:16px">Un premier échange suffit pour cadrer la reprise de vos dossiers et le rythme de production. Sans engagement.</p>
+        <div style="display:flex;gap:14px;margin-top:30px;flex-wrap:wrap">
+          <a class="btn btn-gold" href="Contact.html">Demander un échange</a>
+          <a class="btn btn-light" href="Plateforme.html">Découvrir la plateforme</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="footer" data-screen-label="Footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <img class="logo" src="assets/alisey-logo-light.png" alt="Alisey" />
+        <p>L'externalisation comptable et sociale aux standards français. Cap sur le BPO — le vent dans le dos.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="Accueil.html">Accueil</a></li>
+          <li><a href="Accueil.html#services">Services</a></li>
+          <li><a href="Plateforme.html">Plateforme</a></li>
+          <li><a href="Démarche.html">Démarche &amp; philosophie</a></li>
+          <li><a href="Nous.html">Nous</a></li>
+          <li><a href="Accueil.html#references">Références</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="Contact.html">Formulaire de contact</a></li>
+          <li><a href="#">WhatsApp professionnel</a></li>
+          <li><a href="#">Casablanca · Maroc</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Accès</h4>
+        <ul>
+          <li><a href="Espace-client.html">Espace client</a></li>
+          <li><a href="#">Connexion plateforme</a></li>
+          <li><a href="#">Mentions légales</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Alisey — Cap sur le BPO. Tous droits réservés.</span>
+      <span class="chips">
+        <span class="chip on-dark">Conforme RGPD</span>
+        <span class="chip on-dark">Standards français</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

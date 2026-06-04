@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alisey — Cap sur le BPO comptable</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="alisey.css" />
+</head>
+<body>
+
+<!-- ============================== NAV ============================== -->
+<header class="nav" data-screen-label="Nav">
+  <div class="nav-inner">
+    <a href="Accueil.html"><img class="logo" src="assets/alisey-logo.png" alt="Alisey — Cap sur le BPO" /></a>
+    <nav class="nav-links">
+      <a href="Accueil.html" class="active">Accueil</a>
+      <a href="#services">Services</a>
+      <a href="Plateforme.html">Plateforme</a>
+      <a href="Démarche.html">Démarche</a>
+      <a href="Nous.html">Nous</a>
+      <a href="#references">Références</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-lock" href="Espace-client.html">Espace client</a>
+      <a class="btn btn-primary" href="Contact.html">Nous contacter</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================== HERO ============================== -->
+<section class="hero" data-screen-label="Hero">
+  <svg class="wind wind-hero" viewBox="0 0 380 150" fill="none" aria-hidden="true" style="height: 70px; top: 14px; right: 24px; z-index: 2;">
+    <path d="M40 24 H250 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#8bbfdf" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M10 58 H330 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#1b3a6b" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M55 92 H270 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#1b6fa8" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M30 126 H300 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#c9a84c" stroke-width="3.4" stroke-linecap="round"/>
+  </svg>
+
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <p class="eyebrow">Externalisation comptable · Maroc → France</p>
+      <h1 style="font-family: Spectral; font-size: 38px; font-weight: 500; width: 600px">Produire plus,
+produire mieux.</h1>
+      <ul class="lead hero-points">
+        <li>Sans recruter</li>
+        <li>Sans perdre le contrôle</li>
+        <li>Sans lésiner sur la qualité</li>
+      </ul>
+      <p class="lead" style="margin-top: 18px; font-family: Spectral; font-size: 38px; font-weight: 500; color: var(--navy); line-height: 1.1; width: 600px">Suivre vos dossiers en temps réel sur la plateforme</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="Plateforme.html">Découvrir la plateforme
+          <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost btn-lock" href="Espace-client.html">Espace client</a>
+      </div>
+    </div>
+
+    <!-- DASHBOARD MOCKUP -->
+    <div class="reveal mock" aria-hidden="true">
+      <div class="mock-bar" style="padding: 1px 16px 12px">
+        <span class="d"></span><span class="d"></span><span class="d"></span>
+        <span class="url">app.alisey.fr / dossiers</span>
+      </div>
+      <div class="mock-body">
+        <aside class="mock-side">
+          <div class="m-logo">A</div>
+          <div class="m-i on"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+          <div class="m-i"><svg viewBox="0 0 24 24"><path d="M4 19V5M10 19v-7M16 19V9M22 19H2"/></svg></div>
+          <div class="m-i"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div class="m-i"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+        </aside>
+        <main class="mock-main">
+          <div class="mock-h">
+            <span class="t">Dossiers en production</span>
+            <span class="ai"><span class="dot"></span>Assistant IA actif</span>
+          </div>
+          <div class="mock-kpis">
+            <div class="mock-kpi"><div class="k">En cours</div><div class="v">38</div></div>
+            <div class="mock-kpi"><div class="k">Livrés / mois</div><div class="v">126 <small>+18%</small></div></div>
+            <div class="mock-kpi"><div class="k">Délai moyen</div><div class="v">3,2<small> j</small></div></div>
+          </div>
+          <div class="mock-table">
+            <div class="mock-row">
+              <span class="f"><span class="av">MD</span>Martin &amp; Associés — TVA</span>
+              <span class="mock-bars"><span style="height:40%"></span><span style="height:70%"></span><span class="hi" style="height:100%"></span></span>
+              <span class="m-status ok">Livré</span>
+            </div>
+            <div class="mock-row">
+              <span class="f"><span class="av">CB</span>Cabinet Bernard — Bilan</span>
+              <span class="mock-bars"><span style="height:55%"></span><span class="hi" style="height:85%"></span><span style="height:60%"></span></span>
+              <span class="m-status run">En cours</span>
+            </div>
+            <div class="mock-row">
+              <span class="f"><span class="av">FL</span>Fiduciaire Loire — Paie</span>
+              <span class="mock-bars"><span style="height:30%"></span><span style="height:50%"></span><span class="hi" style="height:75%"></span></span>
+              <span class="m-status rev">Révision</span>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CRÉDIBILITÉ ============================== -->
+<section class="section tight sand" data-screen-label="Crédibilité">
+  <div class="wrap">
+    <div class="grid g3 stats-centered">
+      <div class="stat reveal"><div class="n">40</div><div class="l">collaborateurs dédiés à la production comptable</div></div>
+      <div class="stat reveal"><div class="n">2<span class="u">+1</span></div><div class="l">experts-comptables, dont un diplômé de France, &amp; un spécialiste BPO et externalisation</div></div>
+      <div class="stat reveal"><div class="n">2</div><div class="l">sites de production</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PROMESSE ============================== -->
+<section class="section" id="promesse" data-screen-label="Promesse">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">La promesse Alisey</p>
+      <h2>Externaliser vos dossiers ou services comptables.</h2>
+      <p class="lead">Six engagements qui guident chaque dossier que vous nous confiez.</p>
+    </div>
+    <div class="grid g3" style="margin-top:48px">
+      <div class="card hover reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <span class="num-tag">01</span>
+        <h3 style="margin: 5px 0px 9px">Produire plus, produire mieux</h3>
+        <p>Accompagner votre croissance ou réorganisation tout en optimisant vos coûts et process.</p>
+      </div>
+      <div class="card hover reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
+        <span class="num-tag">02</span>
+        <h3>Produire ailleurs, comme chez soi</h3>
+        <p>Une extension de votre équipe, intégrée à vos méthodes et à vos outils, en toute transparence.</p>
+      </div>
+      <div class="card hover reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div>
+        <span class="num-tag">03</span>
+        <h3>Aux standards français</h3>
+        <p>La même exigence, la même qualité de production — sans produire en France.</p>
+      </div>
+      <div class="card hover reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <span class="num-tag">04</span>
+        <h3>Compétitif, jamais low-cost</h3>
+        <p>Un rapport valeur / prix maîtrisé — jamais au détriment du sérieux et de la fiabilité.</p>
+      </div>
+      <div class="card hover reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <span class="num-tag">05</span>
+        <h3>Conforme RGPD</h3>
+        <p>Le traitement de vos données aligné sur les contraintes européennes, par défaut.</p>
+      </div>
+      <div class="card hover reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2a4 4 0 0 0-4 4 4 4 0 0 0-1 7.87A4 4 0 0 0 12 22a4 4 0 0 0 5-8.13A4 4 0 0 0 16 6a4 4 0 0 0-4-4z"/><path d="M12 8v8M8.5 12h7"/></svg></div>
+        <span class="num-tag">06</span>
+        <h3>Plateforme &amp; IA</h3>
+        <p>Suivi, reporting et intelligence artificielle au service de votre cabinet et de votre marge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PLATEFORME (navy) ============================== -->
+<section class="section navy" id="plateforme" data-screen-label="Plateforme">
+  <svg class="wind wind-hero" viewBox="0 0 380 150" fill="none" aria-hidden="true" style="opacity:.22;top:auto;bottom:6%;left:-60px;right:auto">
+    <path d="M40 24 H250 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#8bbfdf" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M10 58 H330 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#aad0e8" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M55 92 H270 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#1b6fa8" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M30 126 H300 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#c9a84c" stroke-width="3.4" stroke-linecap="round"/>
+  </svg>
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow plain" style="color:var(--sky)">Le lien direct avec votre production</p>
+      <h2>Une plateforme pour suivre, sans déléguer le contrôle.</h2>
+      <p class="lead" style="color:#aebfd4">Chaque dossier confié reste visible, mesuré et traçable. Votre cabinet garde la main ; nous portons la charge.</p>
+    </div>
+    <div class="grid g3" style="margin-top:52px">
+      <div class="card glass reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>Suivi des dossiers</h3>
+        <p>L'avancement de chaque mission en continu, étape par étape.</p>
+      </div>
+      <div class="card glass reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 19V5M10 19v-7M16 19V9M22 19H2"/></svg></div>
+        <h3>Reporting (SPV)</h3>
+        <p>Indicateurs de production et de qualité, consolidés pour le pilotage.</p>
+      </div>
+      <div class="card glass reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2a4 4 0 0 0-4 4 4 4 0 0 0-1 7.87A4 4 0 0 0 12 22a4 4 0 0 0 5-8.13A4 4 0 0 0 16 6a4 4 0 0 0-4-4z"/></svg></div>
+        <h3>Assistant IA</h3>
+        <p>Une aide à la production qui fait gagner du temps et de la valeur ajoutée.</p>
+      </div>
+      <div class="card glass reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Échanges centralisés</h3>
+        <p>Mail et WhatsApp tracés au dossier — jamais perdus, toujours retrouvables.</p>
+      </div>
+      <div class="card glass reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+        <h3>Documents &amp; livrables</h3>
+        <p>Pièces et productions réunies au même endroit, versionnées.</p>
+      </div>
+      <div class="card glass reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div>
+        <h3>Standards FR intégrés</h3>
+        <p>Les contrôles qualité sont incorporés au flux de travail, pas ajoutés après coup.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SERVICES ============================== -->
+<section class="section" id="services" data-screen-label="Services">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Ce que nous prenons en charge</p>
+      <h2>La mission, de bout en bout.</h2>
+      <p class="lead">Mission comptable et mission sociale complètes, plus la mise à disposition de ressources sur mesure. Le contact direct avec votre client reste chez vous — nous restons en coulisses, par mail ou WhatsApp.</p>
+    </div>
+    <div class="grid g3" style="margin-top:44px">
+      <div class="card reveal" style="padding:34px">
+        <span class="chip-mono">Mission comptable</span>
+        <h3 style="margin-top:18px;font-size:26px">Du dossier brut au bilan.</h3>
+        <p style="margin-top:12px">La tenue, la révision et la production des comptes, dans le respect de vos méthodes et de vos échéances.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px">
+          <span class="chip">Saisie &amp; tenue</span>
+          <span class="chip">Révision</span>
+          <span class="chip">Déclarations TVA</span>
+          <span class="chip">Dossier de révision annuel</span>
+          <span class="chip">Liasse &amp; bilan</span>
+        </div>
+      </div>
+      <div class="card reveal" style="padding:34px">
+        <span class="chip-mono">Mission sociale</span>
+        <h3 style="margin-top:18px;font-size:26px">La paie, sans accroc.</h3>
+        <p style="margin-top:12px">La gestion sociale courante, des bulletins aux déclarations, avec la rigueur attendue d'un cabinet.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px">
+          <span class="chip">Bulletins de paie</span>
+          <span class="chip">DSN</span>
+          <span class="chip">Déclarations sociales</span>
+          <span class="chip">Entrées / sorties</span>
+        </div>
+      </div>
+      <div class="card reveal" style="padding:34px">
+        <span class="chip-mono">Sur mesure</span>
+        <h3 style="margin-top:18px;font-size:26px">Mise à disposition &amp; missions dédiées.</h3>
+        <p style="margin-top:12px">Une ressource dédiée à vos couleurs ou une mission ponctuelle calibrée sur votre besoin — clôtures, surcroît d'activité, projets spécifiques.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px">
+          <span class="chip">Ressource dédiée</span>
+          <span class="chip">Renfort saisonnier</span>
+          <span class="chip">Mission ponctuelle</span>
+          <span class="chip">Projets sur mesure</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== DÉMARCHE ============================== -->
+<section class="section mist" id="demarche" data-screen-label="Démarche">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Notre démarche</p>
+      <h2>Deux process, une même rigueur.</h2>
+      <p class="lead">Un parcours d'intégration ponctuel pour reprendre votre portefeuille, puis un cycle récurrent qui rythme la production au quotidien.</p>
+    </div>
+
+    <div class="track reveal">
+      <div class="track-head">
+        <span class="tk-no">Process 01</span>
+        <h3>Intégration &amp; mise en production</h3>
+        <span class="tk-badge once">Ponctuel</span>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="s-no">1</div>
+          <h4>Récupération du portefeuille</h4>
+          <p>Nous reprenons vos dossiers, vos pièces et l'historique nécessaire à la production.</p>
+        </div>
+        <div class="step">
+          <div class="s-no">2</div>
+          <h4>Cadrage &amp; analyse du besoin</h4>
+          <p>Nous reprenons vos méthodes, vos modèles et vos exigences, et calibrons l'organisation.</p>
+        </div>
+        <div class="step">
+          <div class="s-no">3</div>
+          <h4>Mise en production</h4>
+          <p>L'équipe dédiée démarre aux standards français, suivie en temps réel sur la plateforme.</p>
+        </div>
+        <div class="step optional">
+          <div class="s-no">↩</div>
+          <span class="opt-tag">Si besoin · non récurrent</span>
+          <h4>Rétrocession du dossier</h4>
+          <p>La restitution complète du dossier à votre cabinet reste possible, à tout moment.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="track loop-track reveal">
+      <div class="track-head">
+        <span class="tk-no">Process 02</span>
+        <h3>Production récurrente</h3>
+        <span class="tk-badge loop">Cycle continu</span>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="s-no">1</div>
+          <h4>Réception des documents</h4>
+          <p>Vos pièces arrivent, centralisées et tracées au dossier sur la plateforme.</p>
+        </div>
+        <div class="step">
+          <div class="s-no">2</div>
+          <h4>Traitement</h4>
+          <p>Production comptable et sociale aux standards français, avec double contrôle.</p>
+        </div>
+        <div class="step">
+          <div class="s-no">3</div>
+          <h4>Restitution des livrables</h4>
+          <p>Les productions vous sont restituées, prêtes à valider. Votre client ne voit que votre cabinet.</p>
+        </div>
+        <div class="step">
+          <div class="s-no">4</div>
+          <h4>Suivi &amp; reporting</h4>
+          <p>Indicateurs d'avancement et de qualité consolidés, accessibles à votre cabinet en continu.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== RÉFÉRENCES ============================== -->
+<section class="section sand" id="references" data-screen-label="Références">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow">Ils nous font confiance</p>
+      <h2>La preuve par leurs mots.</h2>
+      <p class="lead">Deux cabinets d'expertise comptable et un grand groupe marocain témoignent de leur collaboration avec Alisey.</p>
+    </div>
+
+    <div class="tcards">
+      <div class="tcard reveal">
+        <span class="badge-type">2A CONSULTING</span>
+        <span class="qm">"</span>
+        <p class="body">"Notre collaboration est encore récente, mais je peux déjà attester d'un niveau de sérieux et de rigueur que je n'attendais pas si tôt. Les livrables sont propres, les délais tenus, et l'équipe est disponible dès qu'on en a besoin."</p>
+        <div class="who-row">
+          <div class="av">C1</div>
+          <div class="who">
+            <div class="nm">Kamel BOUAZZA</div>
+            <div class="rl">Expert-comptable · Cabinet</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tcard reveal">
+        <span class="badge-type">COMPTAFE</span>
+        <span class="qm">"</span>
+        <p class="body">"Nous sommes impliqués dans la conception de la plateforme Alisey depuis ses débuts. Le projet est très prometteur — traçabilité des dossiers, standardisation des méthodes, suivi en temps réel. Couplé à la qualité déjà démontrée sur le terrain, ça dessine un partenariat solide sur le long terme."</p>
+        <div class="who-row">
+          <div class="av">C2</div>
+          <div class="who">
+            <div class="nm">Benjamin CARTIER</div>
+            <div class="rl">Associé · Cabinet</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tcard reveal">
+        <span class="badge-type">DISLOG</span>
+        <span class="qm">"</span>
+        <p class="body">"Externaliser la comptabilité de nos filiales françaises était un enjeu stratégique. Alisey a su comprendre nos contraintes de groupe, standardiser les process et assurer une régularité des livrables qui nous permet de piloter sereinement depuis Casablanca."</p>
+        <div class="who-row">
+          <div class="av">GM</div>
+          <div class="who">
+            <div class="nm">Zakaria ELJIRARI</div>
+            <div class="rl">Direction financière · Groupe</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CTA CONTACT ============================== -->
+<section class="section" id="contact" data-screen-label="Contact">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <svg class="wind wind-cta wind-hero" viewBox="0 0 380 150" fill="none" aria-hidden="true">
+        <path d="M40 24 H250 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#8bbfdf" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M10 58 H330 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#aad0e8" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M55 92 H270 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#1b6fa8" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M30 126 H300 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#c9a84c" stroke-width="3.4" stroke-linecap="round"/>
+      </svg>
+      <div style="max-width:560px;position:relative">
+        <p class="eyebrow plain" style="color:var(--sky)">Parlons-en</p>
+        <h2>Parlons de votre charge de production.</h2>
+        <p class="lead" style="color:#cdd9ea;margin-top:16px">Un premier échange, un dossier test, et vous jugez sur pièce. Sans engagement.</p>
+        <div style="display:flex;gap:14px;margin-top:30px;flex-wrap:wrap">
+          <a class="btn btn-gold" href="Contact.html">Demander un échange</a>
+          <a class="btn btn-light" href="#services">Voir nos services</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="footer" data-screen-label="Footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <img class="logo" src="assets/alisey-logo-light.png" alt="Alisey" />
+        <p>L'externalisation comptable et sociale aux standards français. Cap sur le BPO — le vent dans le dos.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="Accueil.html">Accueil</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="Plateforme.html">Plateforme</a></li>
+          <li><a href="Démarche.html">Démarche &amp; philosophie</a></li>
+          <li><a href="Nous.html">Nous</a></li>
+          <li><a href="#references">Références</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="Contact.html">Formulaire de contact</a></li>
+          <li><a href="#">WhatsApp professionnel</a></li>
+          <li><a href="#">Casablanca · Maroc</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Accès</h4>
+        <ul>
+          <li><a href="Espace-client.html">Espace client</a></li>
+          <li><a href="#">Connexion plateforme</a></li>
+          <li><a href="#">Mentions légales</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Alisey — Cap sur le BPO. Tous droits réservés.</span>
+      <span class="chips">
+        <span class="chip on-dark">Conforme RGPD</span>
+        <span class="chip on-dark">Standards français</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

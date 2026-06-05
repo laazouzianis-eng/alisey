@@ -6,7 +6,8 @@
       "Bash(git push *)",
       "WebFetch(domain:api.anthropic.com)",
       "PowerShell($env:Path = [System.Environment]::GetEnvironmentVariable\\(\"Path\",\"Machine\"\\) + \";\" + [System.Environment]::GetEnvironmentVariable\\(\"Path\",\"User\"\\); gh repo edit laazouzianis-eng/alisey --default-branch main)",
-      "PowerShell(Rename-Item \"c:\\\\Users\\\\USER\\\\Desktop\\\\Perso\\\\Claude code\\\\Alisey\\\\assets\\\\ChatGPT Image 5 juin 2026, 11_06_41.png\" \"externalisation-equipe.png\")"
+      "PowerShell(Rename-Item \"c:\\\\Users\\\\USER\\\\Desktop\\\\Perso\\\\Claude code\\\\Alisey\\\\assets\\\\ChatGPT Image 5 juin 2026, 11_06_41.png\" \"externalisation-equipe.png\")",
+      "PowerShell(Rename-Item \"c:\\\\Users\\\\USER\\\\Desktop\\\\Perso\\\\Claude code\\\\Alisey\\\\assets\\\\Alisey_externalisation2.webp\" \"hero-team.webp\")"
     ],
     "additionalDirectories": [
       "C:\\Users\\USER\\.claude\\projects\\c--Users-USER-Desktop-Perso-Claude-code-Alisey\\73ac8d94-f317-4d10-b4a9-1ec05736b216\\tool-results\\extracted4\\alisey\\project"

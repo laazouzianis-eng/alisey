@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alisey — La plateforme</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="alisey.css" />
+</head>
+<body>
+
+<!-- ============================== NAV ============================== -->
+<header class="nav" data-screen-label="Nav">
+  <div class="nav-inner">
+    <a href="index.html"><img class="logo" src="assets/alisey-logo.png" alt="Alisey — Cap sur le BPO" /></a>
+    <nav class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="index.html#services">Services</a>
+      <a href="Plateforme.html" class="active">Plateforme</a>
+      <a href="Démarche.html">Démarche</a>
+      <a href="Nous.html">Nous</a>
+      <a href="index.html#references">Références</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-lock" href="Espace-client.html">Espace client</a>
+      <a class="btn btn-primary" href="Contact.html">Nous contacter</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================== HERO ============================== -->
+<section class="hero" data-screen-label="Hero">
+  <svg class="wind wind-hero" viewBox="0 0 380 150" fill="none" aria-hidden="true" style="height: 85px">
+    <path d="M40 24 H250 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#8bbfdf" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M10 58 H330 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#1b3a6b" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M55 92 H270 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#1b6fa8" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M30 126 H300 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#c9a84c" stroke-width="3.4" stroke-linecap="round"/>
+  </svg>
+
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <p class="eyebrow">La plateforme Alisey</p>
+      <h1 style="font-size:44px">Le poste de pilotage de votre production externalisée.</h1>
+      <p class="lead" style="margin-top:18px">Une interface unique qui relie votre cabinet à notre production : vous répartissez vos dossiers, suivez leur avancement et pilotez la qualité — en temps réel, sans perdre la main.</p>
+      <div class="launch-pill" style="margin-top:24px"><span class="pulse"></span>Mise en production : fin octobre au plus tard</div>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#roles">Découvrir son rôle
+          <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost btn-lock" href="Espace-client.html">Espace client</a>
+      </div>
+    </div>
+
+    <!-- DASHBOARD MOCKUP -->
+    <div class="reveal mock" aria-hidden="true">
+      <div class="mock-bar">
+        <span class="d"></span><span class="d"></span><span class="d"></span>
+        <span class="url">app.alisey.fr / répartition</span>
+      </div>
+      <div class="mock-body">
+        <aside class="mock-side">
+          <div class="m-logo">A</div>
+          <div class="m-i on"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+          <div class="m-i"><svg viewBox="0 0 24 24"><path d="M4 19V5M10 19v-7M16 19V9M22 19H2"/></svg></div>
+          <div class="m-i"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div class="m-i"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+        </aside>
+        <main class="mock-main">
+          <div class="mock-h">
+            <span class="t">Répartition des dossiers</span>
+            <span class="ai"><span class="dot"></span>Charge équilibrée</span>
+          </div>
+          <div class="mock-kpis">
+            <div class="mock-kpi"><div class="k">À affecter</div><div class="v">7</div></div>
+            <div class="mock-kpi"><div class="k">En production</div><div class="v">38</div></div>
+            <div class="mock-kpi"><div class="k">Qualité</div><div class="v">98<small>%</small></div></div>
+          </div>
+          <div class="mock-table">
+            <div class="mock-row">
+              <span class="f"><span class="av">MD</span>Martin &amp; Associés — TVA</span>
+              <span class="mock-bars"><span style="height:40%"></span><span style="height:70%"></span><span class="hi" style="height:100%"></span></span>
+              <span class="m-status ok">Affecté</span>
+            </div>
+            <div class="mock-row">
+              <span class="f"><span class="av">CB</span>Cabinet Bernard — Bilan</span>
+              <span class="mock-bars"><span style="height:55%"></span><span class="hi" style="height:85%"></span><span style="height:60%"></span></span>
+              <span class="m-status run">En cours</span>
+            </div>
+            <div class="mock-row">
+              <span class="f"><span class="av">FL</span>Fiduciaire Loire — Paie</span>
+              <span class="mock-bars"><span style="height:30%"></span><span style="height:50%"></span><span class="hi" style="height:75%"></span></span>
+              <span class="m-status rev">À affecter</span>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== INTRO ============================== -->
+<section class="section tight sand" data-screen-label="Intro">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow">Pensée pour le cabinet français</p>
+      <h2>Bien plus qu'un outil de suivi : un véritable lien de pilotage.</h2>
+      <p class="lead">La plateforme Alisey n'est pas une simple boîte de dépôt. C'est l'espace où votre cabinet garde la main sur la répartition de ses dossiers, et où nous garantissons l'encadrement et l'amélioration continue de la qualité de production.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== RÔLE 1 — Répartition ============================== -->
+<section class="section" id="roles" data-screen-label="Rôle répartition">
+  <div class="wrap role-block">
+    <div>
+      <p class="eyebrow">Rôle nº1 · Côté cabinet</p>
+      <h2>Répartir et suivre vos dossiers, en toute autonomie.</h2>
+      <p class="lead" style="margin-top:16px">Depuis votre espace, vous gardez la main sur ce qui entre en production et vous en suivez l'avancement à chaque étape — sans relances, sans zones d'ombre.</p>
+      <ul class="role-list">
+        <li><b>Affectation des dossiers</b> — vous décidez quels dossiers confier, et quand.</li>
+        <li><b>Suivi en temps réel</b> — l'état d'avancement de chaque mission, étape par étape.</li>
+        <li><b>Visibilité sur la charge</b> — une vue claire de ce qui est à affecter, en cours et livré.</li>
+        <li><b>Échanges tracés</b> — chaque question et chaque pièce rattachées au bon dossier.</li>
+      </ul>
+    </div>
+    <div class="role-visual">
+      <div class="mock" style="transform:none;box-shadow:var(--shadow-sm)">
+        <div class="mock-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">répartition</span></div>
+        <div style="padding:18px;background:#fbfcfd">
+          <div class="mock-kpis">
+            <div class="mock-kpi"><div class="k">À affecter</div><div class="v">7</div></div>
+            <div class="mock-kpi"><div class="k">En cours</div><div class="v">38</div></div>
+            <div class="mock-kpi"><div class="k">Livrés</div><div class="v">126</div></div>
+          </div>
+          <div class="mock-table" style="margin-top:12px">
+            <div class="mock-row"><span class="f"><span class="av">MD</span>Dossier — TVA juin</span><span class="m-status ok">Affecté</span></div>
+            <div class="mock-row"><span class="f"><span class="av">CB</span>Dossier — Bilan N</span><span class="m-status run">En cours</span></div>
+            <div class="mock-row"><span class="f"><span class="av">FL</span>Dossier — Paie</span><span class="m-status rev">À affecter</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== RÔLE 2 — Qualité / Encadrement ============================== -->
+<section class="section sand" data-screen-label="Rôle qualité">
+  <div class="wrap role-block flip">
+    <div>
+      <p class="eyebrow">Rôle nº2 · Côté production</p>
+      <h2>Encadrer et améliorer la qualité, en continu.</h2>
+      <p class="lead" style="margin-top:16px">La plateforme structure notre production : elle standardise les méthodes, trace les contrôles et nourrit une démarche d'amélioration de la politique qualité à l'échelle de tous les dossiers.</p>
+      <ul class="role-list">
+        <li><b>Standards français intégrés</b> — les contrôles qualité incorporés au flux, pas ajoutés après coup.</li>
+        <li><b>Double contrôle tracé</b> — producteur puis réviseur, avec une piste d'audit complète.</li>
+        <li><b>Indicateurs de qualité</b> — mesure et reporting (SPV) pour piloter l'amélioration globale.</li>
+        <li><b>Assistant IA</b> — une aide à la production qui fait gagner du temps et fiabilise les livrables.</li>
+      </ul>
+    </div>
+    <div class="role-visual" style="background:#fff">
+      <div class="grid" style="gap:14px">
+        <div class="card" style="padding:20px">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span class="chip-mono">Taux de qualité</span>
+            <span style="font-family:var(--font-display);font-size:30px;font-weight:600;color:var(--navy)">98%</span>
+          </div>
+          <div style="height:8px;border-radius:99px;background:var(--mist);margin-top:12px;overflow:hidden"><div style="width:98%;height:100%;background:var(--accent)"></div></div>
+        </div>
+        <div class="card" style="padding:20px">
+          <span class="chip-mono">Piste d'audit</span>
+          <div style="display:flex;flex-direction:column;gap:9px;margin-top:14px;font-size:13px;color:var(--ink-soft)">
+            <span>✓ Production — A. B.</span>
+            <span>✓ Révision — C. D.</span>
+            <span style="color:var(--blue)">→ Restitution au cabinet</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== LAUNCH BAND ============================== -->
+<section class="section" data-screen-label="Lancement">
+  <div class="wrap">
+    <div class="launch-band reveal">
+      <svg class="wind wind-cta wind-hero" viewBox="0 0 380 150" fill="none" aria-hidden="true" style="opacity:.3">
+        <path d="M40 24 H250 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#8bbfdf" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M10 58 H330 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#aad0e8" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M55 92 H270 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#c9a84c" stroke-width="3.4" stroke-linecap="round"/>
+      </svg>
+      <div style="position:relative">
+        <div class="launch-pill"><span class="pulse"></span>Calendrier</div>
+        <h2>La plateforme entre en production très bientôt.</h2>
+        <p class="lead" style="color:#cdd9ea;margin-top:14px">Les développements sont en cours, en co-conception avec des cabinets partenaires. La mise en production est prévue <b style="color:#fff">fin octobre au plus tard</b>. D'ici là, nous accompagnons déjà vos dossiers avec le même niveau d'exigence.</p>
+        <div style="display:flex;gap:14px;margin-top:26px;flex-wrap:wrap">
+          <a class="btn btn-gold" href="Contact.html">Être informé du lancement</a>
+        </div>
+      </div>
+      <div class="launch-date">
+        <div class="lbl">Entrée en production</div>
+        <div class="big">Fin octobre</div>
+        <div class="sub">au plus tard — 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CTA CONTACT ============================== -->
+<section class="section" data-screen-label="Contact">
+  <div class="wrap">
+    <div class="cta-band">
+      <svg class="wind wind-cta wind-hero" viewBox="0 0 380 150" fill="none" aria-hidden="true">
+        <path d="M40 24 H250 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#8bbfdf" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M10 58 H330 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#aad0e8" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M55 92 H270 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#1b6fa8" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M30 126 H300 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#c9a84c" stroke-width="3.4" stroke-linecap="round"/>
+      </svg>
+      <div style="max-width:560px;position:relative">
+        <p class="eyebrow plain" style="color:var(--sky)">Parlons-en</p>
+        <h2>Une démonstration vous intéresse ?</h2>
+        <p class="lead" style="color:#cdd9ea;margin-top:16px">Échangeons sur votre organisation et la façon dont la plateforme s'y intégrera.</p>
+        <div style="display:flex;gap:14px;margin-top:30px;flex-wrap:wrap">
+          <a class="btn btn-gold" href="Contact.html">Demander un échange</a>
+          <a class="btn btn-light" href="index.html#services">Voir nos services</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="footer" data-screen-label="Footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <img class="logo" src="assets/alisey-logo-light.png" alt="Alisey" />
+        <p>L'externalisation comptable et sociale aux standards français. Cap sur le BPO — le vent dans le dos.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="Plateforme.html">Plateforme</a></li>
+          <li><a href="Démarche.html">Démarche &amp; philosophie</a></li>
+          <li><a href="Nous.html">Nous</a></li>
+          <li><a href="index.html#references">Références</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="Contact.html">Formulaire de contact</a></li>
+          <li><a href="#">WhatsApp professionnel</a></li>
+          <li><a href="#">Casablanca · Maroc</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Accès</h4>
+        <ul>
+          <li><a href="Espace-client.html">Espace client</a></li>
+          <li><a href="#">Connexion plateforme</a></li>
+          <li><a href="#">Mentions légales</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Alisey — Cap sur le BPO. Tous droits réservés.</span>
+      <span class="chips">
+        <span class="chip on-dark">Conforme RGPD</span>
+        <span class="chip on-dark">Standards français</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -10,6 +10,135 @@
 <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="alisey.css" />
+<script src="image-slot.js"></script>
+<style>
+  /* ---- Héros deux colonnes : texte + photo ---- */
+  .hero-grid { align-items: center; grid-template-columns: 1.05fr 0.95fr; row-gap: 40px; }
+  .hero .hero-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(32px, 3.5vw, 46px);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    color: var(--blue);
+    max-width: none;
+    margin-bottom: 24px;
+    text-wrap: pretty;
+  }
+  .hero-sub {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(20px, 1.9vw, 25px);
+    color: var(--navy);
+    line-height: 1.2;
+    margin: 0 0 16px;
+  }
+  .hero-grid .hero-points { max-width: 480px; }
+  .hero-cta-wide { grid-column: 1 / -1; margin-top: 4px; }
+
+  /* colonne photo */
+  .hero-photo { display: flex; align-self: start; margin-top: 56px; min-width: 0; }
+  .hero-photo-slot {
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 3 / 2;
+    height: auto;
+    box-shadow: var(--shadow);
+  }
+  @media (max-width: 980px) {
+    .hero-photo-slot { aspect-ratio: 3 / 2; }
+  }
+
+  /* ---- Encart « événement à venir » : plateforme ---- */
+  .launch-banner {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    margin-top: 30px;
+    margin-bottom: 0;
+    width: 100%;
+    max-width: none;
+    grid-column: 1 / -1;
+    padding: 22px 28px;
+    border-radius: var(--radius-lg);
+    background: var(--navy-900);
+    border: 1px solid rgba(255,255,255,.08);
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .launch-banner::before {
+    content: "";
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--accent, #c9a84c);
+  }
+  .launch-banner:hover { transform: translateY(-2px); box-shadow: 0 18px 40px rgba(11,28,56,.28); }
+
+  .launch-badge {
+    flex: none;
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #f2e6c4;
+    background: rgba(201,168,76,.16);
+    border: 1px solid rgba(201,168,76,.38);
+    padding: 7px 13px;
+    border-radius: 999px;
+  }
+  .launch-badge .pulse {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #e9c969;
+    box-shadow: 0 0 0 0 rgba(233,201,105,.6);
+    animation: launchPulse 2s infinite;
+  }
+  @keyframes launchPulse {
+    0% { box-shadow: 0 0 0 0 rgba(233,201,105,.55); }
+    70% { box-shadow: 0 0 0 9px rgba(233,201,105,0); }
+    100% { box-shadow: 0 0 0 0 rgba(233,201,105,0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .launch-badge .pulse { animation: none; }
+  }
+
+  .launch-body { display: flex; flex-direction: column; gap: 5px; flex: 1 1 auto; }
+  .launch-title {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.25;
+  }
+  .launch-sub { font-size: 14px; color: #b9c6da; line-height: 1.45; }
+
+  .launch-cta {
+    flex: none;
+    align-self: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 14.5px;
+    color: var(--sky, #8bbfdf);
+    white-space: nowrap;
+  }
+  .launch-cta svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 2; transition: transform .18s ease; }
+  .launch-banner:hover .launch-cta svg { transform: translateX(4px); }
+
+  @media (max-width: 720px) {
+    .launch-banner { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .launch-cta { align-self: flex-start; }
+  }
+</style>
 </head>
 <body>
 
@@ -34,6 +163,7 @@
 
 <!-- ============================== HERO ============================== -->
 <section class="hero" data-screen-label="Hero">
+  <!-- motif alizés -->
   <svg class="wind wind-hero" viewBox="0 0 380 150" fill="none" aria-hidden="true" style="height: 70px; top: 14px; right: 24px; z-index: 2;">
     <path d="M40 24 H250 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#8bbfdf" stroke-width="3.4" stroke-linecap="round"/>
     <path d="M10 58 H330 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#1b3a6b" stroke-width="3.4" stroke-linecap="round"/>
@@ -44,66 +174,29 @@
   <div class="wrap hero-grid">
     <div class="reveal">
       <p class="eyebrow">Externalisation comptable · Maroc → France</p>
-      <h1 style="font-family: Spectral; font-size: 38px; font-weight: 500; width: 600px">Produire plus,
-produire mieux.</h1>
+      <h1 class="hero-title" style="margin: 0px 0px 34px; font-size: 60px">Et vos projets d'externalisation comptable ont le vent en poupe.</h1>
+      <p class="hero-sub">Produire plus, produire mieux.</p>
       <ul class="lead hero-points">
         <li>Sans recruter</li>
         <li>Sans perdre le contrôle</li>
         <li>Sans lésiner sur la qualité</li>
       </ul>
-      <p class="lead" style="margin-top: 18px; font-family: Spectral; font-size: 38px; font-weight: 500; color: var(--navy); line-height: 1.1; width: 600px">Suivre vos dossiers en temps réel sur la plateforme</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="Plateforme.html">Découvrir la plateforme
-          <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn-ghost btn-lock" href="Espace-client.html">Espace client</a>
-      </div>
     </div>
 
-    <!-- DASHBOARD MOCKUP -->
-    <div class="reveal mock" aria-hidden="true">
-      <div class="mock-bar" style="padding: 1px 16px 12px">
-        <span class="d"></span><span class="d"></span><span class="d"></span>
-        <span class="url">app.alisey.fr / dossiers</span>
-      </div>
-      <div class="mock-body">
-        <aside class="mock-side">
-          <div class="m-logo">A</div>
-          <div class="m-i on"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
-          <div class="m-i"><svg viewBox="0 0 24 24"><path d="M4 19V5M10 19v-7M16 19V9M22 19H2"/></svg></div>
-          <div class="m-i"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-          <div class="m-i"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
-        </aside>
-        <main class="mock-main">
-          <div class="mock-h">
-            <span class="t">Dossiers en production</span>
-            <span class="ai"><span class="dot"></span>Assistant IA actif</span>
-          </div>
-          <div class="mock-kpis">
-            <div class="mock-kpi"><div class="k">En cours</div><div class="v">38</div></div>
-            <div class="mock-kpi"><div class="k">Livrés / mois</div><div class="v">126 <small>+18%</small></div></div>
-            <div class="mock-kpi"><div class="k">Délai moyen</div><div class="v">3,2<small> j</small></div></div>
-          </div>
-          <div class="mock-table">
-            <div class="mock-row">
-              <span class="f"><span class="av">MD</span>Martin &amp; Associés — TVA</span>
-              <span class="mock-bars"><span style="height:40%"></span><span style="height:70%"></span><span class="hi" style="height:100%"></span></span>
-              <span class="m-status ok">Livré</span>
-            </div>
-            <div class="mock-row">
-              <span class="f"><span class="av">CB</span>Cabinet Bernard — Bilan</span>
-              <span class="mock-bars"><span style="height:55%"></span><span class="hi" style="height:85%"></span><span style="height:60%"></span></span>
-              <span class="m-status run">En cours</span>
-            </div>
-            <div class="mock-row">
-              <span class="f"><span class="av">FL</span>Fiduciaire Loire — Paie</span>
-              <span class="mock-bars"><span style="height:30%"></span><span style="height:50%"></span><span class="hi" style="height:75%"></span></span>
-              <span class="m-status rev">Révision</span>
-            </div>
-          </div>
-        </main>
-      </div>
+    <!-- PHOTO : deux équipes qui collaborent -->
+    <div class="reveal hero-photo">
+      <image-slot id="hero-team" class="hero-photo-slot" shape="rect" radius="0" fit="cover" placeholder="Déposez une photo — deux équipes qui collaborent" style="width: 100%; max-width: 600px; aspect-ratio: 3 / 2; border-radius: 0px; opacity: 1; height: 450px"></image-slot>
     </div>
+
+    <!-- ÉVÉNEMENT À VENIR : plateforme de suivi (pleine largeur) -->
+    <a class="launch-banner reveal" href="Contact.html">
+      <span class="launch-badge"><span class="pulse"></span>Prochainement</span>
+      <span class="launch-body">
+        <span class="launch-title">Suivez vos dossiers en temps réel sur la plateforme Alisey</span>
+        <span class="launch-sub">Le lancement approche — traçabilité totale, reporting et assistant IA. Soyez parmi les premiers informés.</span>
+      </span>
+      <span class="launch-cta">Être informé<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
   </div>
 </section>
 
@@ -112,7 +205,7 @@ produire mieux.</h1>
   <div class="wrap">
     <div class="grid g3 stats-centered">
       <div class="stat reveal"><div class="n">40</div><div class="l">collaborateurs dédiés à la production comptable</div></div>
-      <div class="stat reveal"><div class="n">2<span class="u">+1</span></div><div class="l">experts-comptables, dont un diplômé de France, &amp; un spécialiste BPO et externalisation</div></div>
+      <div class="stat reveal"><div class="n">2<span class="u">+1</span></div><div class="l">Deux experts-comptables, dont un est diplômé de France, &amp; un spécialiste BPO et externalisation</div></div>
       <div class="stat reveal"><div class="n">2</div><div class="l">sites de production</div></div>
     </div>
   </div>

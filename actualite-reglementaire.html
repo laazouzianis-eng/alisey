@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Actualité réglementaire comptable France — Veille Alisey</title>
+<meta name="description" content="Veille réglementaire comptable et sociale française : facturation électronique, DSN BTP, TVA auto-liquidation, liasse fiscale. Les actualités qui impactent la production de votre cabinet." />
+<link rel="canonical" href="https://www.alisey.fr/actualite-reglementaire.html" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="alisey.css" />
+
+<style>
+  /* ---- Filtres catégorie ---- */
+  .filter-bar {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    margin-bottom: 36px;
+  }
+  .filter-btn {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+    padding: 8px 18px; border-radius: 999px; cursor: pointer;
+    border: 1px solid var(--line-cool);
+    background: #fff; color: var(--ink-soft);
+    transition: background .15s, color .15s, border-color .15s;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--navy); color: #fff; border-color: var(--navy);
+  }
+
+  /* ---- Cartes actualité ---- */
+  .news-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  @media (max-width: 720px) { .news-grid { grid-template-columns: 1fr; } }
+
+  .news-card {
+    background: var(--paper);
+    border: 1px solid var(--line-cool);
+    border-radius: var(--radius-lg);
+    padding: 28px 30px;
+    display: flex; flex-direction: column; gap: 0;
+    transition: box-shadow .18s, transform .18s;
+  }
+  .news-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+  .news-card.featured {
+    border-top: 4px solid var(--accent);
+    background: linear-gradient(135deg, #fffdf7 0%, #fff 100%);
+  }
+
+  .nc-meta {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 14px;
+  }
+  .nc-date {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft);
+  }
+  .nc-cat {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: .1em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 999px;
+  }
+  .nc-cat.cat-facturation { background: #fef3c7; color: #92400e; }
+  .nc-cat.cat-social      { background: #dbeafe; color: #1e40af; }
+  .nc-cat.cat-fiscalite   { background: #dcfce7; color: #166534; }
+
+  .nc-title {
+    font-family: var(--font-display); font-size: 19px; font-weight: 600;
+    color: var(--navy); line-height: 1.3; margin-bottom: 12px;
+  }
+  .nc-summary {
+    color: var(--ink-soft); font-size: 14px; line-height: 1.65;
+    flex: 1; margin-bottom: 20px;
+  }
+  .nc-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--font-sans); font-size: 13.5px; font-weight: 600;
+    color: var(--blue); text-decoration: none;
+    margin-top: auto;
+  }
+  .nc-link svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; transition: transform .15s; }
+  .nc-link:hover svg { transform: translateX(3px); }
+  .nc-link:hover { color: var(--navy); }
+</style>
+</head>
+<body>
+
+<!-- ============================== NAV ============================== -->
+<header class="nav" data-screen-label="Nav">
+  <div class="nav-inner">
+    <a href="index.html"><img class="logo" src="assets/alisey-logo.png" alt="Alisey — Cap sur le BPO" /></a>
+    <nav class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="index.html#services">Services</a>
+      <a href="plateforme.html">Plateforme</a>
+      <a href="demarche.html">Démarche</a>
+      <a href="nous.html">Nous</a>
+      <a href="facturation-electronique.html">Facture électronique</a>
+      <a href="actualite-reglementaire.html" class="active">Veille réglementaire</a>
+      <a href="index.html#references">Références</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-lock" href="espace-client.html">Espace client</a>
+      <a class="btn btn-primary" href="contact.html">Nous contacter</a>
+    </div>
+    <button class="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nav-panel">
+    <a href="index.html">Accueil</a>
+    <a href="index.html#services">Services</a>
+    <a href="plateforme.html">Plateforme</a>
+    <a href="demarche.html">Démarche</a>
+    <a href="nous.html">Nous</a>
+    <a href="facturation-electronique.html">Facture électronique</a>
+    <a href="actualite-reglementaire.html" class="active">Veille réglementaire</a>
+    <a href="index.html#references">Références</a>
+    <div class="nav-panel-cta">
+      <a class="btn btn-ghost btn-lock" href="espace-client.html">Espace client</a>
+      <a class="btn btn-primary" href="contact.html">Nous contacter</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ============================== PAGE HEADER ============================== -->
+<section class="page-head" data-screen-label="En-tête">
+  <svg class="wind wind-hero" viewBox="0 0 380 150" fill="none" aria-hidden="true" style="height:120px">
+    <path d="M40 24 H250 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#8bbfdf" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M10 58 H330 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#1b3a6b" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M55 92 H270 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#1b6fa8" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M30 126 H300 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#c9a84c" stroke-width="3.4" stroke-linecap="round"/>
+  </svg>
+  <div class="wrap">
+    <p class="eyebrow">Mise à jour en continu</p>
+    <h1>Veille réglementaire comptable <span class="mark">pour les cabinets français.</span></h1>
+    <p class="lead">DSN, TVA, facturation électronique, liasse fiscale — les évolutions qui impactent directement votre production. Suivies, résumées et contextualisées par l'équipe Alisey.</p>
+  </div>
+</section>
+
+<!-- ============================== ACTUALITÉS ============================== -->
+<section class="section" data-screen-label="Actualités">
+  <div class="wrap">
+
+    <div class="filter-bar" id="filter-bar">
+      <button class="filter-btn active" data-cat="all">Tout</button>
+      <button class="filter-btn" data-cat="Facturation">Facturation</button>
+      <button class="filter-btn" data-cat="Social">Social</button>
+      <button class="filter-btn" data-cat="Fiscalité">Fiscalité</button>
+    </div>
+
+    <div class="news-grid" id="news-grid">
+
+      <!-- Article 1 — Facturation électronique (à la une) -->
+      <div class="news-card featured reveal" data-cat="Facturation">
+        <div class="nc-meta">
+          <span class="nc-date">21 juin 2026</span>
+          <span class="nc-cat cat-facturation">Facturation</span>
+        </div>
+        <div class="nc-title">Réforme de la facturation électronique : ce que votre cabinet doit mettre en place avant septembre 2026</div>
+        <p class="nc-summary">À partir du 1<sup>er</sup> septembre 2026, toutes les entreprises assujetties à la TVA devront être en capacité de recevoir des factures électroniques. Les grandes entreprises et ETI devront également les émettre à cette date ; les PME et TPE suivront en septembre 2027. Les formats acceptés sont Factur-X, UBL et CII, via une Plateforme de Dématérialisation Partenaire (PDP) agréée ou la plateforme publique gratuite. Un délai à anticiper dès maintenant pour adapter les processus et former les équipes.</p>
+        <a class="nc-link" href="facturation-electronique.html">Lire le guide complet <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <!-- Article 2 — DSN BTP / CIBTP -->
+      <div class="news-card reveal" data-cat="Social">
+        <div class="nc-meta">
+          <span class="nc-date">Juin 2026</span>
+          <span class="nc-cat cat-social">Social</span>
+        </div>
+        <div class="nc-title">DSN et CIBTP dans le BTP : les points de vigilance pour vos bulletins de paie</div>
+        <p class="nc-summary">Dans le secteur du bâtiment, la Déclaration Sociale Nominative (DSN) intègre des spécificités propres au BTP : gestion des droits à congés via les caisses CIBTP, codes organismes particuliers (PRO BTP, OPPBTP) et données de chantier à renseigner. Une erreur de paramétrage dans la DSN se répercute directement sur les droits à congés des salariés et sur les rapprochements avec la caisse — avec un risque de régularisation coûteuse lors du contrôle annuel de la CIBTP.</p>
+        <a class="nc-link" href="#dsn-btp">Lire la suite <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <!-- Article 3 — TVA BTP auto-liquidation -->
+      <div class="news-card reveal" data-cat="Fiscalité">
+        <div class="nc-meta">
+          <span class="nc-date">Mai 2026</span>
+          <span class="nc-cat cat-fiscalite">Fiscalité</span>
+        </div>
+        <div class="nc-title">TVA en auto-liquidation dans le BTP : mécanisme, écritures et risques comptables</div>
+        <p class="nc-summary">Le mécanisme d'auto-liquidation de la TVA (article 283 CGI) transfère l'obligation de déclaration du sous-traitant BTP au donneur d'ordre dans les marchés de sous-traitance. Ce dispositif est fréquemment source d'erreurs en production : omission de la TVA à déclarer côté client, ou facturation de TVA par le sous-traitant alors qu'elle n'est pas due. La maîtrise des écritures comptables symétriques (TVA collectée / TVA déductible) est indispensable pour éviter les redressements.</p>
+        <a class="nc-link" href="#tva-autoliquidation">Lire la suite <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <!-- Article 4 — Amortissements dérogatoires Article 236 CGI -->
+      <div class="news-card reveal" data-cat="Fiscalité">
+        <div class="nc-meta">
+          <span class="nc-date">Avril 2026</span>
+          <span class="nc-cat cat-fiscalite">Fiscalité</span>
+        </div>
+        <div class="nc-title">Amortissements dérogatoires et Article 236 CGI : enjeux pour la liasse fiscale</div>
+        <p class="nc-summary">L'article 236 du Code général des impôts permet aux PME d'opter pour la déduction fiscale immédiate de certaines dépenses normalement amortissables (logiciels, frais d'acquisition d'actifs incorporels). Ce régime dérogatoire génère un décalage temporaire entre résultat comptable et résultat fiscal qui se gère par des réintégrations et déductions extra-comptables dans la liasse — un suivi rigoureux des tableaux 2054 et 2055 est indispensable pour éviter les erreurs à la clôture.</p>
+        <a class="nc-link" href="#art-236-cgi">Lire la suite <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CTA CONTACT ============================== -->
+<section class="section sand" data-screen-label="Contact">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow">Une question réglementaire ?</p>
+      <h2>Votre équipe Alisey fait le point avec vous.</h2>
+      <p class="lead">Chaque évolution réglementaire a un impact sur votre production. Nous anticipons ces impacts pour vous.</p>
+      <div style="display:flex;gap:14px;justify-content:center;margin-top:30px;flex-wrap:wrap">
+        <a class="btn btn-primary" href="contact.html">Nous contacter</a>
+        <a class="btn btn-ghost" href="facturation-electronique.html">Guide facturation électronique</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="footer" data-screen-label="Footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <img class="logo" src="assets/alisey-logo-light.png" alt="Alisey" />
+        <p>L'externalisation comptable et sociale aux standards français. Cap sur le BPO — le vent dans le dos.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="plateforme.html">Plateforme</a></li>
+          <li><a href="demarche.html">Démarche &amp; philosophie</a></li>
+          <li><a href="nous.html">Nous</a></li>
+          <li><a href="index.html#references">Références</a></li>
+          <li><a href="facturation-electronique.html">Facture électronique</a></li>
+          <li><a href="actualite-reglementaire.html">Veille réglementaire</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="contact.html">Formulaire de contact</a></li>
+          <li><a href="#">Bd Zoulikha NACIRI, Florida 5, N°59 — Sidi Maarouf, Casablanca</a></li>
+          <li><a href="#">210, Bd ABDELMOUMEN, Les Jardins Abdelmoumen, Imm. G2, Appt N°7 — Casablanca</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Accès</h4>
+        <ul>
+          <li><a href="espace-client.html">Espace client</a></li>
+          <li><a href="#">Connexion plateforme</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Alisey — Cap sur le BPO. Tous droits réservés.</span>
+      <span class="chips">
+        <span class="chip on-dark">Conforme RGPD</span>
+        <span class="chip on-dark">Standards français</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/nav.js"></script>
+<script>
+(function () {
+  var bar   = document.getElementById('filter-bar');
+  var grid  = document.getElementById('news-grid');
+  if (!bar || !grid) return;
+  var btns  = bar.querySelectorAll('.filter-btn');
+  var cards = grid.querySelectorAll('.news-card');
+  btns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      btns.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var cat = btn.dataset.cat;
+      cards.forEach(function (card) {
+        card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

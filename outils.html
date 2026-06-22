@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4J2G7X419W"></script>
+<script src="/assets/analytics.js"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Boîte à outils — Business plans &amp; calculateurs | Alisey</title>
+<meta name="description" content="Bibliothèque d'outils pratiques pour cabinets comptables : business plans sectoriels préremplis avec simulateur financier interactif et calculateurs de pénalités fiscales et URSSAF." />
+<link rel="canonical" href="https://www.alisey.fr/outils.html" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="alisey.css" />
+<style>
+  /* ---- Filtres secteur ---- */
+  .filter-bar {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    margin-bottom: 36px;
+  }
+  .filter-btn {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+    padding: 8px 18px; border-radius: 999px; cursor: pointer;
+    border: 1px solid var(--line-cool);
+    background: #fff; color: var(--ink-soft);
+    transition: background .15s, color .15s, border-color .15s;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--navy); color: #fff; border-color: var(--navy);
+  }
+
+  /* ---- Grille business plans ---- */
+  .bp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  @media (max-width: 720px) { .bp-grid { grid-template-columns: 1fr; } }
+
+  .bp-card {
+    background: var(--paper);
+    border: 1px solid var(--line-cool);
+    border-radius: var(--radius-lg);
+    padding: 28px 30px;
+    display: flex; flex-direction: column;
+    text-decoration: none; color: inherit;
+    transition: box-shadow .18s, transform .18s;
+  }
+  .bp-card:hover:not(.coming-soon) {
+    box-shadow: var(--shadow); transform: translateY(-3px);
+  }
+  .bp-card.featured { border-top: 4px solid var(--accent); }
+  .bp-card.coming-soon { opacity: .58; pointer-events: none; }
+
+  .bp-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+  .bp-tag {
+    font-family: var(--font-mono); font-size: 10.5px;
+    letter-spacing: .1em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 999px;
+    background: var(--mist); color: var(--blue);
+    border: 1px solid var(--line-cool);
+  }
+  .bp-tag.soon {
+    background: var(--sand, #f5f1e8); color: var(--ink-soft);
+    margin-left: auto;
+  }
+
+  .bp-ico {
+    width: 44px; height: 44px; border-radius: var(--radius);
+    background: var(--mist); color: var(--blue);
+    display: flex; align-items: center; justify-content: center;
+    flex: none; margin-bottom: 14px;
+  }
+  .bp-ico svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+
+  .bp-card h3 { margin: 0 0 8px; color: var(--navy); font-size: 17px; }
+  .bp-card > p { color: var(--ink-soft); font-size: 15px; line-height: 1.55; flex: 1; margin-bottom: 18px; }
+
+  .bp-features {
+    list-style: none; padding: 0; margin: 0 0 22px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .bp-features li {
+    font-size: 13.5px; color: var(--ink-soft);
+    padding-left: 20px; position: relative; line-height: 1.4;
+  }
+  .bp-features li::before {
+    content: "→"; position: absolute; left: 0;
+    color: var(--accent); font-weight: 600;
+  }
+
+  .bp-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono); font-size: 11.5px;
+    letter-spacing: .08em; text-transform: uppercase; font-weight: 600;
+    color: var(--navy); margin-top: auto;
+    transition: gap .15s;
+  }
+  .bp-cta svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2.2; }
+  .bp-card:not(.coming-soon):hover .bp-cta { gap: 13px; }
+  .bp-cta-soon {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: .08em; text-transform: uppercase;
+    color: var(--ink-faint, #8492a8); margin-top: auto;
+  }
+
+  /* ---- Section calculateurs (navy) ---- */
+  .calc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 36px; }
+  @media (max-width: 720px) { .calc-grid { grid-template-columns: 1fr; } }
+
+  .calc-card {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: var(--radius-lg);
+    padding: 26px 28px;
+    display: flex; flex-direction: column;
+  }
+  .calc-tag {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--sky); background: rgba(139,191,223,.12);
+    border: 1px solid rgba(139,191,223,.25);
+    padding: 4px 10px; border-radius: 999px;
+    align-self: flex-start; margin-bottom: 14px;
+  }
+  .calc-card h3 { color: #d9e2ef; font-size: 16px; margin: 0 0 8px; }
+  .calc-card > p { color: #8fa5be; font-size: 14px; line-height: 1.55; flex: 1; margin-bottom: 16px; }
+
+  .calc-onglets {
+    list-style: none; padding: 0; margin: 0 0 20px;
+    display: flex; flex-direction: column; gap: 5px;
+  }
+  .calc-onglets li {
+    font-size: 12.5px; color: #7a8faa;
+    padding-left: 18px; position: relative;
+  }
+  .calc-onglets li::before {
+    content: "▸"; position: absolute; left: 0;
+    color: var(--accent); font-size: 11px; top: 1px;
+  }
+
+  .btn-soon {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: .1em; text-transform: uppercase;
+    padding: 10px 18px; border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(255,255,255,.04);
+    color: #566070; cursor: not-allowed; align-self: flex-start;
+  }
+  .btn-soon svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+  /* ---- Note stockage ---- */
+  .storage-note {
+    margin-top: 40px;
+    background: rgba(139,191,223,.08);
+    border: 1px solid rgba(139,191,223,.16);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    font-size: 13px; color: #8fa5be;
+    line-height: 1.55;
+  }
+  .storage-note code {
+    font-family: var(--font-mono); font-size: 12px;
+    color: var(--sky); background: rgba(139,191,223,.12);
+    padding: 2px 6px; border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================== NAV ============================== -->
+<header class="nav" data-screen-label="Nav">
+  <div class="nav-inner">
+    <a href="index.html"><img class="logo" src="assets/alisey-logo.png" alt="Alisey — Cap sur le BPO" /></a>
+    <nav class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="facturation-electronique.html" style="color:var(--accent);font-weight:600">Facture électronique</a>
+      <a href="index.html#services">Services</a>
+      <a href="plateforme.html">Plateforme</a>
+      <a href="demarche.html">Démarche</a>
+      <a href="nous.html">Nous</a>
+      <a href="actualite-reglementaire.html">Veille réglementaire</a>
+      <a href="outils.html" class="active">Outils</a>
+      <a href="index.html#references">Références</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-lock" href="espace-client.html">Espace client</a>
+      <a class="btn btn-primary" href="contact.html">Nous contacter</a>
+    </div>
+    <button class="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nav-panel">
+    <a href="index.html">Accueil</a>
+    <a href="facturation-electronique.html" style="color:var(--accent);font-weight:600">Facture électronique</a>
+    <a href="index.html#services">Services</a>
+    <a href="plateforme.html">Plateforme</a>
+    <a href="demarche.html">Démarche</a>
+    <a href="nous.html">Nous</a>
+    <a href="actualite-reglementaire.html">Veille réglementaire</a>
+    <a href="outils.html" class="active">Outils</a>
+    <a href="index.html#references">Références</a>
+    <div class="nav-panel-cta">
+      <a class="btn btn-ghost btn-lock" href="espace-client.html">Espace client</a>
+      <a class="btn btn-primary" href="contact.html">Nous contacter</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ============================== PAGE HEADER ============================== -->
+<section class="page-head" data-screen-label="En-tête">
+  <svg class="wind wind-hero" viewBox="0 0 380 150" fill="none" aria-hidden="true" style="height:120px">
+    <path d="M40 24 H250 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#8bbfdf" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M10 58 H330 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#1b3a6b" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M55 92 H270 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#1b6fa8" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M30 126 H300 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#c9a84c" stroke-width="3.4" stroke-linecap="round"/>
+  </svg>
+  <div class="wrap">
+    <p class="eyebrow">Ressources · Cabinets comptables</p>
+    <h1>Boîte à outils <span class="mark">pour vos missions client.</span></h1>
+    <p class="lead">Business plans sectoriels préremplis avec simulateur financier interactif, et calculateurs de pénalités fiscales et URSSAF — des outils directement utilisables par vos collaborateurs.</p>
+  </div>
+</section>
+
+<!-- ============================== BUSINESS PLANS ============================== -->
+<section class="section" data-screen-label="Business plans">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Section 1 — Business plans sectoriels</p>
+      <h2>Un point de départ solide pour chaque mission.</h2>
+      <p class="lead">Chaque business plan intègre une étude de marché sectorielle et un simulateur financier interactif. Modifiez les hypothèses, exportez le résultat.</p>
+    </div>
+
+    <div class="filter-bar" id="bp-filter-bar" style="margin-top:32px">
+      <button class="filter-btn active" data-sector="all">Tous les secteurs</button>
+      <button class="filter-btn" data-sector="btp">BTP &amp; Construction</button>
+      <button class="filter-btn" data-sector="alimentaire">Alimentaire</button>
+      <button class="filter-btn" data-sector="commerce">Commerce &amp; Digital</button>
+      <button class="filter-btn" data-sector="restauration">Restauration</button>
+    </div>
+
+    <div class="bp-grid" id="bp-grid">
+
+      <!-- BTP — disponible -->
+      <a class="bp-card featured reveal" href="outils/business-plan-btp.html" data-sector="btp">
+        <div class="bp-meta">
+          <span class="bp-tag">BTP &amp; Construction</span>
+          <span class="bp-tag" style="margin-left:auto;background:rgba(201,168,76,.1);color:var(--accent);border-color:rgba(201,168,76,.3)">Disponible</span>
+        </div>
+        <div class="bp-ico">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+        </div>
+        <h3>BTP — Bâtiment &amp; Travaux Publics</h3>
+        <p>Étude de marché sectorielle + modèle financier paramétrable pour les entreprises du bâtiment et des travaux publics : artisans, PME sous-traitantes, maîtrise d'œuvre.</p>
+        <ul class="bp-features">
+          <li>Marché, tendances &amp; chiffres clés du BTP en France</li>
+          <li>Simulateur CA / charges / résultat en temps réel</li>
+          <li>Seuil de rentabilité et EBE calculés automatiquement</li>
+        </ul>
+        <span class="bp-cta">
+          Ouvrir le business plan
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+
+      <!-- Boulangerie — bientôt -->
+      <div class="bp-card coming-soon reveal" data-sector="alimentaire">
+        <div class="bp-meta">
+          <span class="bp-tag">Alimentaire</span>
+          <span class="bp-tag soon">Bientôt</span>
+        </div>
+        <div class="bp-ico">
+          <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <h3>Boulangerie-Pâtisserie</h3>
+        <p>Business plan spécifique aux boulangeries et pâtisseries artisanales : coûts matières, masse salariale horaire, taux de marge par famille de produits.</p>
+        <ul class="bp-features">
+          <li>Étude de marché artisanat alimentaire</li>
+          <li>Simulateur coût matière / ticket moyen / CA</li>
+          <li>Gestion de la saisonnalité</li>
+        </ul>
+        <span class="bp-cta-soon">En préparation…</span>
+      </div>
+
+      <!-- E-commerce — bientôt -->
+      <div class="bp-card coming-soon reveal" data-sector="commerce">
+        <div class="bp-meta">
+          <span class="bp-tag">Commerce &amp; Digital</span>
+          <span class="bp-tag soon">Bientôt</span>
+        </div>
+        <div class="bp-ico">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        </div>
+        <h3>E-commerce</h3>
+        <p>Modèle financier adapté aux boutiques en ligne : coût d'acquisition client (CAC), taux de conversion, logistique et retours, marges nettes par canal de vente.</p>
+        <ul class="bp-features">
+          <li>Marché e-commerce France &amp; Europe</li>
+          <li>Simulateur CAC / LTV / marge nette</li>
+          <li>Projection trésorerie 12 mois</li>
+        </ul>
+        <span class="bp-cta-soon">En préparation…</span>
+      </div>
+
+      <!-- Restauration — bientôt -->
+      <div class="bp-card coming-soon reveal" data-sector="restauration">
+        <div class="bp-meta">
+          <span class="bp-tag">Restauration</span>
+          <span class="bp-tag soon">Bientôt</span>
+        </div>
+        <div class="bp-ico">
+          <svg viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>
+        </div>
+        <h3>Restauration</h3>
+        <p>Business plan complet pour restaurants traditionnels, bistrots et restauration rapide : food cost, coefficients multiplicateurs, ticket moyen, seuil de rentabilité hebdomadaire.</p>
+        <ul class="bp-features">
+          <li>Étude de marché restauration en France</li>
+          <li>Simulateur food cost / ticket moyen</li>
+          <li>Taux d'occupation salle et point mort</li>
+        </ul>
+        <span class="bp-cta-soon">En préparation…</span>
+      </div>
+
+    </div><!-- /bp-grid -->
+  </div>
+</section>
+
+<!-- ============================== CALCULATEURS ============================== -->
+<section class="section navy" data-screen-label="Calculateurs">
+  <svg class="wind wind-hero" viewBox="0 0 380 150" fill="none" aria-hidden="true" style="opacity:.15;top:auto;bottom:4%;left:-60px;right:auto">
+    <path d="M40 24 H250 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#8bbfdf" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M10 58 H330 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#aad0e8" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M55 92 H270 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#c9a84c" stroke-width="3.4" stroke-linecap="round"/>
+  </svg>
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow plain" style="color:var(--sky)">Section 2 — Calculateurs de pénalités</p>
+      <h2>Qualifiez et chiffrez chaque irrégularité en quelques secondes.</h2>
+      <p class="lead" style="color:#aebfd4">Chaque fichier Excel contient deux onglets : qualification de l'infraction et calcul des pénalités/intérêts. Déposez simplement le fichier définitif dans <code style="font-family:var(--font-mono);font-size:.85em;color:var(--sky)">/assets/outils/calculateurs/</code> pour l'activer.</p>
+    </div>
+
+    <div class="calc-grid">
+
+      <div class="calc-card reveal">
+        <span class="calc-tag">Fiscalité · TVA</span>
+        <h3>Pénalités TVA</h3>
+        <p>Calcul des majorations et intérêts de retard applicables en cas de déclaration tardive, d'insuffisance de déclaration ou d'omission de TVA collectée.</p>
+        <ul class="calc-onglets">
+          <li>Qualification de l'irrégularité TVA</li>
+          <li>Calcul majorations 10 % / 40 % / 80 %</li>
+          <li>Intérêts de retard (0,20 %/mois)</li>
+        </ul>
+        <button class="btn-soon" disabled aria-label="Téléchargement disponible prochainement">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Bientôt disponible
+        </button>
+      </div>
+
+      <div class="calc-card reveal">
+        <span class="calc-tag">Fiscalité · IS</span>
+        <h3>Majorations IS &amp; acomptes</h3>
+        <p>Calcul des majorations pour insuffisance de versement des acomptes IS et pour défaut de déclaration dans les délais prescrits.</p>
+        <ul class="calc-onglets">
+          <li>Qualification défaut / insuffisance d'acompte</li>
+          <li>Majoration 5 % + intérêts de retard</li>
+          <li>Calcul de la pénalité nette due</li>
+        </ul>
+        <button class="btn-soon" disabled aria-label="Téléchargement disponible prochainement">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Bientôt disponible
+        </button>
+      </div>
+
+      <div class="calc-card reveal">
+        <span class="calc-tag">URSSAF · Social</span>
+        <h3>Pénalités URSSAF — déclaration tardive</h3>
+        <p>Calcul des majorations de retard URSSAF applicables en cas de déclaration DSN hors délai ou de versement tardif des cotisations sociales.</p>
+        <ul class="calc-onglets">
+          <li>Qualification retard DSN / paiement</li>
+          <li>Majoration initiale 5 % + 0,2 %/mois</li>
+          <li>Application de la remise gracieuse</li>
+        </ul>
+        <button class="btn-soon" disabled aria-label="Téléchargement disponible prochainement">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Bientôt disponible
+        </button>
+      </div>
+
+      <div class="calc-card reveal">
+        <span class="calc-tag">URSSAF · Social</span>
+        <h3>Redressement URSSAF — travail dissimulé</h3>
+        <p>Aide à la qualification et à l'estimation du redressement URSSAF dans les situations de travail dissimulé partiel ou de réintégration d'avantages en nature.</p>
+        <ul class="calc-onglets">
+          <li>Qualification de l'infraction</li>
+          <li>Cotisations rappelées + majorations 25 % / 40 %</li>
+          <li>Estimation du passif social global</li>
+        </ul>
+        <button class="btn-soon" disabled aria-label="Téléchargement disponible prochainement">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Bientôt disponible
+        </button>
+      </div>
+
+    </div><!-- /calc-grid -->
+
+    <div class="storage-note">
+      📁 Pour activer un calculateur : déposez le fichier Excel dans
+      <code>/assets/outils/calculateurs/</code> et mettez à jour le lien <code>href</code> du bouton correspondant. Aucune modification de code supplémentaire n'est nécessaire.
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================== CTA ============================== -->
+<section class="section sand" data-screen-label="CTA">
+  <div class="wrap" style="text-align:center">
+    <p class="eyebrow" style="justify-content:center">Besoin d'un outil sur mesure ?</p>
+    <h2 style="max-width:560px;margin:8px auto 18px">Votre cabinet a des besoins spécifiques que ces outils ne couvrent pas encore ?</h2>
+    <p class="lead" style="max-width:520px;margin:0 auto 32px">Dites-nous ce dont vous avez besoin — nous développons régulièrement de nouveaux modèles sectoriels et calculateurs à la demande de nos partenaires.</p>
+    <a class="btn btn-primary" href="contact.html">Nous soumettre un besoin</a>
+  </div>
+</section>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="footer" data-screen-label="Footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <img class="logo" src="assets/alisey-logo-light.png" alt="Alisey" />
+        <p>L'externalisation comptable et sociale aux standards français. Cap sur le BPO — le vent dans le dos.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="plateforme.html">Plateforme</a></li>
+          <li><a href="demarche.html">Démarche &amp; philosophie</a></li>
+          <li><a href="nous.html">Nous</a></li>
+          <li><a href="index.html#references">Références</a></li>
+          <li><a href="facturation-electronique.html">Facture électronique</a></li>
+          <li><a href="actualite-reglementaire.html">Veille réglementaire</a></li>
+          <li><a href="outils.html">Outils</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="contact.html">Formulaire de contact</a></li>
+          <li><a href="#">Bd Zoulikha NACIRI, Florida 5, N°59 — Sidi Maarouf, Casablanca</a></li>
+          <li><a href="#">210, Bd ABDELMOUMEN, Les Jardins Abdelmoumen, Imm. G2, Appt N°7 — Casablanca</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Accès</h4>
+        <ul>
+          <li><a href="espace-client.html">Espace client</a></li>
+          <li><a href="#">Connexion plateforme</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Alisey — Cap sur le BPO. Tous droits réservés.</span>
+      <span class="chips">
+        <span class="chip on-dark">Conforme RGPD</span>
+        <span class="chip on-dark">Standards français</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/nav.js"></script>
+<script>
+(function () {
+  var bar   = document.getElementById('bp-filter-bar');
+  var grid  = document.getElementById('bp-grid');
+  var btns  = bar.querySelectorAll('.filter-btn');
+  var cards = grid.querySelectorAll('.bp-card, [data-sector]');
+  btns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      btns.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var sector = btn.dataset.sector;
+      cards.forEach(function (card) {
+        card.style.display = (sector === 'all' || card.dataset.sector === sector) ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

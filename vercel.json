@@ -4,6 +4,11 @@
       "source": "/Accueil.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/facturation-electronique.html",
+      "destination": "/actualite-reglementaire.html#facturation-electronique",
+      "permanent": true
     }
   ]
 }

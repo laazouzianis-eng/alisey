@@ -5,8 +5,8 @@
 <script src="/assets/analytics.js"></script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Actualité réglementaire comptable France — Veille Alisey</title>
-<meta name="description" content="Veille réglementaire comptable et sociale française : facturation électronique, DSN BTP, TVA auto-liquidation, liasse fiscale. Les actualités qui impactent la production de votre cabinet." />
+<title>Actualité réglementaire — Facturation électronique, DSN, TVA | Alisey</title>
+<meta name="description" content="Actualité réglementaire comptable et sociale française : guide complet facturation électronique 2026, DSN BTP, TVA auto-liquidation. Suivie et contextualisée pour les cabinets partenaires d'Alisey." />
 <link rel="canonical" href="https://www.alisey.fr/actualite-reglementaire.html" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,76 +16,202 @@
 <link rel="stylesheet" href="alisey.css" />
 
 <style>
-  /* ---- Filtres catégorie ---- */
-  .filter-bar {
-    display: flex; gap: 8px; flex-wrap: wrap;
-    margin-bottom: 36px;
-  }
-  .filter-btn {
-    font-family: var(--font-mono);
-    font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
-    padding: 8px 18px; border-radius: 999px; cursor: pointer;
+  /* ---- Bannière de fraîcheur ---- */
+  .freshness-banner {
+    background: var(--mist);
     border: 1px solid var(--line-cool);
-    background: #fff; color: var(--ink-soft);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 14px 20px;
+    display: flex; align-items: flex-start; gap: 14px;
+    font-size: 13.5px; color: var(--ink-soft); line-height: 1.5;
+    margin-bottom: 0;
+  }
+  .freshness-banner .fb-date {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: var(--blue); white-space: nowrap; padding-top: 2px;
+  }
+  .freshness-banner a { color: var(--blue); }
+
+  /* ---- Timeline ---- */
+  .timeline { display: flex; flex-direction: column; gap: 0; margin-top: 36px; position: relative; }
+  .timeline::before {
+    content: ""; position: absolute; left: 38px; top: 24px; bottom: 24px; width: 2px;
+    background: linear-gradient(var(--accent), var(--sky));
+  }
+  .tl-item {
+    display: grid; grid-template-columns: 78px 1fr; gap: 24px; align-items: start;
+    padding-bottom: 32px; position: relative;
+  }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-dot {
+    width: 40px; height: 40px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+    letter-spacing: .05em; flex: none; position: relative; z-index: 1;
+    margin: 2px 0 0 19px;
+  }
+  .tl-dot.all   { background: var(--navy); color: #fff; }
+  .tl-dot.large { background: var(--blue); color: #fff; }
+  .tl-dot.sme   { background: var(--accent); color: #fff; }
+  .tl-body { background: var(--paper); border: 1px solid var(--line-cool); border-radius: var(--radius); padding: 20px 24px; }
+  .tl-body .tl-date { font-family: var(--font-display); font-size: 20px; font-weight: 600; color: var(--navy); }
+  .tl-body .tl-label { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-top: 2px; }
+  .tl-body p { color: var(--ink-soft); font-size: 14.5px; line-height: 1.55; margin-top: 8px; }
+  @media (max-width: 680px) {
+    .timeline::before { left: 19px; }
+    .tl-item { grid-template-columns: 44px 1fr; gap: 14px; }
+    .tl-dot { width: 28px; height: 28px; font-size: 9px; margin-left: 5px; }
+  }
+
+  /* ---- Grille formats ---- */
+  .format-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+  .format-card {
+    background: var(--paper); border: 1px solid var(--line-cool);
+    border-radius: var(--radius); padding: 24px 22px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .format-card .fc-name { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--navy); }
+  .format-card .fc-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
+  .format-card .fc-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); }
+  @media (max-width: 640px) { .format-grid { grid-template-columns: 1fr; } }
+
+  /* ---- Bloc sanction ---- */
+  .sanction-box {
+    background: #fff8f0; border: 1px solid #f5c58a;
+    border-left: 4px solid #d97706; border-radius: var(--radius);
+    padding: 24px 28px; display: flex; gap: 20px; align-items: flex-start; margin-top: 32px;
+  }
+  .sanction-box .sb-amount { font-family: var(--font-display); font-size: 40px; font-weight: 600; color: #92400e; line-height: 1; flex: none; }
+  .sanction-box .sb-amount span { font-size: 18px; vertical-align: super; }
+  .sanction-box .sb-body { flex: 1; }
+  .sanction-box .sb-body b { display: block; color: #92400e; font-size: 16px; margin-bottom: 6px; }
+  .sanction-box .sb-body p { color: var(--ink-soft); font-size: 14px; line-height: 1.55; }
+  @media (max-width: 520px) { .sanction-box { flex-direction: column; gap: 10px; } }
+
+  /* ---- Section accompagnement ---- */
+  .accom-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 36px; }
+  .accom-card {
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.13);
+    border-radius: var(--radius-lg); padding: 28px 26px;
+  }
+  .accom-card .ac-num { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+  .accom-card h3 { font-size: 18px; color: #fff; font-weight: 600; margin-bottom: 8px; }
+  .accom-card p { font-size: 14px; color: #aebfd4; line-height: 1.55; }
+  @media (max-width: 640px) { .accom-grid { grid-template-columns: 1fr; } }
+
+  /* ---- FAQ ---- */
+  .faq-list { display: flex; flex-direction: column; gap: 16px; margin-top: 36px; }
+  .faq-item { background: var(--paper); border: 1px solid var(--line-cool); border-radius: var(--radius); padding: 24px 28px; }
+  .faq-item .fq { font-family: var(--font-display); font-size: 17px; font-weight: 600; color: var(--navy); margin-bottom: 10px; }
+  .faq-item p { color: var(--ink-soft); font-size: 14.5px; line-height: 1.6; }
+
+  /* ---- Sources ---- */
+  .sources-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+  .sources-row a {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--blue);
+    background: var(--mist); border: 1px solid var(--line-cool);
+    border-radius: 999px; padding: 6px 14px; text-decoration: none;
+  }
+  .sources-row a:hover { background: #dde8f5; }
+
+  /* ---- Séparateur de sections ---- */
+  .section-divider {
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--sky), transparent);
+    border: none; margin: 0;
+  }
+
+  /* ---- Filtres catégorie ---- */
+  .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 36px; }
+  .filter-btn {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+    padding: 8px 18px; border-radius: 999px; cursor: pointer;
+    border: 1px solid var(--line-cool); background: #fff; color: var(--ink-soft);
     transition: background .15s, color .15s, border-color .15s;
   }
-  .filter-btn.active, .filter-btn:hover {
-    background: var(--navy); color: #fff; border-color: var(--navy);
-  }
+  .filter-btn.active, .filter-btn:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
 
   /* ---- Cartes actualité ---- */
   .news-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
   @media (max-width: 720px) { .news-grid { grid-template-columns: 1fr; } }
-
   .news-card {
-    background: var(--paper);
-    border: 1px solid var(--line-cool);
-    border-radius: var(--radius-lg);
-    padding: 28px 30px;
+    background: var(--paper); border: 1px solid var(--line-cool);
+    border-radius: var(--radius-lg); padding: 28px 30px;
     display: flex; flex-direction: column; gap: 0;
     transition: box-shadow .18s, transform .18s;
   }
   .news-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
-  .news-card.featured {
-    border-top: 4px solid var(--accent);
-    background: linear-gradient(135deg, #fffdf7 0%, #fff 100%);
-  }
-
-  .nc-meta {
-    display: flex; align-items: center; gap: 10px;
-    margin-bottom: 14px;
-  }
-  .nc-date {
-    font-family: var(--font-mono); font-size: 11px;
-    letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft);
-  }
+  .nc-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .nc-date { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
   .nc-cat {
-    font-family: var(--font-mono); font-size: 10px;
-    letter-spacing: .1em; text-transform: uppercase;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
     padding: 4px 10px; border-radius: 999px;
   }
-  .nc-cat.cat-facturation { background: #fef3c7; color: #92400e; }
-  .nc-cat.cat-social      { background: #dbeafe; color: #1e40af; }
-  .nc-cat.cat-fiscalite   { background: #dcfce7; color: #166534; }
-
-  .nc-title {
-    font-family: var(--font-display); font-size: 19px; font-weight: 600;
-    color: var(--navy); line-height: 1.3; margin-bottom: 12px;
-  }
-  .nc-summary {
-    color: var(--ink-soft); font-size: 14px; line-height: 1.65;
-    flex: 1; margin-bottom: 20px;
-  }
+  .nc-cat.cat-social    { background: #dbeafe; color: #1e40af; }
+  .nc-cat.cat-fiscalite { background: #dcfce7; color: #166534; }
+  .nc-title { font-family: var(--font-display); font-size: 19px; font-weight: 600; color: var(--navy); line-height: 1.3; margin-bottom: 12px; }
+  .nc-summary { color: var(--ink-soft); font-size: 14px; line-height: 1.65; flex: 1; margin-bottom: 20px; }
   .nc-link {
     display: inline-flex; align-items: center; gap: 6px;
     font-family: var(--font-sans); font-size: 13.5px; font-weight: 600;
-    color: var(--blue); text-decoration: none;
-    margin-top: auto;
+    color: var(--blue); text-decoration: none; margin-top: auto;
   }
   .nc-link svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; transition: transform .15s; }
   .nc-link:hover svg { transform: translateX(3px); }
   .nc-link:hover { color: var(--navy); }
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qu'est-ce que la facturation électronique (e-invoicing) ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La facturation électronique, ou e-invoicing, consiste à émettre et recevoir des factures dans un format numérique structuré, lisible à la fois par un humain et par une machine. À la différence d'un simple PDF, ces factures respectent des formats standardisés (Factur-X, UBL, CII) et transitent via une plateforme agréée par l'État ou la plateforme publique gratuite (PPF). La réforme française rend ce dispositif obligatoire pour toutes les entreprises assujetties à la TVA à partir de septembre 2026."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mon entreprise est-elle concernée par cette réforme ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, dès lors que votre entreprise est assujettie à la TVA et établie en France (y compris les DOM, mais pas les collectivités d'Outre-mer). Les grandes entreprises et ETI devront émettre et recevoir des factures électroniques à compter du 1er septembre 2026. Les PME, TPE et micro-entreprises devront également émettre des factures électroniques à compter du 1er septembre 2027. La réception est obligatoire pour toutes les entreprises dès le 1er septembre 2026."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelle est la différence entre facturation électronique et e-reporting ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La facturation électronique (e-invoicing) concerne les opérations B2B entre entreprises assujetties à la TVA établies en France : les factures transitent directement via une plateforme agréée ou la PPF. L'e-reporting couvre les autres transactions — ventes aux particuliers (B2C) et opérations à l'international — pour lesquelles l'entreprise transmet périodiquement les données de transaction à l'administration fiscale. Les deux dispositifs suivent le même calendrier de mise en œuvre."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que risque mon entreprise en cas de non-conformité ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L'administration fiscale peut infliger une amende de 15 € par facture non conforme, plafonnée à 15 000 € par an. Au-delà de la sanction financière, une non-conformité peut entraîner des délais de paiement allongés, des difficultés de rapprochement comptable et un retard dans la récupération de la TVA déductible. Se préparer en amont avec un partenaire maîtrisant ces formats permet d'éviter ces risques opérationnels et financiers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment Alisey peut-elle m'aider à me préparer à cette transition ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Alisey vous accompagne à chaque étape : aide au choix et au paramétrage d'une Plateforme Agréée adaptée à votre situation, adaptation des processus de facturation et de comptabilité aux nouveaux formats, formation de l'équipe comptable externalisée (Factur-X, UBL, CII), et suivi continu pendant toute la phase de transition 2026-2027. Votre production comptable continue sans interruption, quelles que soient les évolutions réglementaires."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -95,12 +221,11 @@
     <a href="index.html"><img class="logo" src="assets/alisey-logo.png" alt="Alisey — Cap sur le BPO" /></a>
     <nav class="nav-links">
       <a href="index.html">Accueil</a>
-      <a href="facturation-electronique.html" style="color:var(--accent);font-weight:600">Facture électronique</a>
       <a href="index.html#services">Services</a>
       <a href="plateforme.html">Plateforme</a>
       <a href="demarche.html">Démarche</a>
       <a href="nous.html">Nous</a>
-      <a href="actualite-reglementaire.html" class="active">Veille réglementaire</a>
+      <a href="actualite-reglementaire.html" class="active">Actue</a>
       <a href="outils.html">Outils</a>
       <a href="index.html#references">Références</a>
     </nav>
@@ -114,12 +239,11 @@
   </div>
   <nav class="nav-panel">
     <a href="index.html">Accueil</a>
-    <a href="facturation-electronique.html" style="color:var(--accent);font-weight:600">Facture électronique</a>
     <a href="index.html#services">Services</a>
     <a href="plateforme.html">Plateforme</a>
     <a href="demarche.html">Démarche</a>
     <a href="nous.html">Nous</a>
-    <a href="actualite-reglementaire.html" class="active">Veille réglementaire</a>
+    <a href="actualite-reglementaire.html" class="active">Actue</a>
     <a href="outils.html">Outils</a>
     <a href="index.html#references">Références</a>
     <div class="nav-panel-cta">
@@ -139,34 +263,233 @@
   </svg>
   <div class="wrap">
     <p class="eyebrow">Mise à jour en continu</p>
-    <h1>Veille réglementaire comptable <span class="mark">pour les cabinets français.</span></h1>
-    <p class="lead">DSN, TVA, facturation électronique, liasse fiscale — les évolutions qui impactent directement votre production. Suivies, résumées et contextualisées par l'équipe Alisey.</p>
+    <h1>Actualité réglementaire <span class="mark">pour les cabinets français.</span></h1>
+    <p class="lead">Facturation électronique, DSN BTP, TVA, liasse fiscale — les évolutions qui impactent directement votre production. Suivies, résumées et contextualisées par l'équipe Alisey.</p>
   </div>
 </section>
 
-<!-- ============================== ACTUALITÉS ============================== -->
+<!-- ============================== À LA UNE : FACTURATION ÉLECTRONIQUE ============================== -->
+<div id="facturation-electronique"></div>
+
+<!-- Bannière fraîcheur -->
+<section class="section tight" data-screen-label="Fraîcheur">
+  <div class="wrap">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap">
+      <span class="chip-mono" style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:rgba(201,168,76,.12);color:var(--accent);border:1px solid rgba(201,168,76,.3);padding:6px 16px;border-radius:999px;font-weight:600">À la une · Facturation</span>
+      <p class="eyebrow" style="margin:0">Réglementation · Fiscalité</p>
+    </div>
+    <h2 style="max-width:700px;margin:0 0 20px">Facturation électronique obligatoire&nbsp;: <span class="mark">ce qui change pour votre cabinet.</span></h2>
+    <p class="lead" style="max-width:640px">Une réforme majeure s'impose à toutes les entreprises assujetties à la TVA en France. Dates, formats, sanctions, et la façon dont Alisey vous accompagne pour traverser cette transition sans rupture de production.</p>
+    <div class="freshness-banner" style="margin-top:28px;max-width:900px">
+      <span class="fb-date">Mise à jour&nbsp;: 21 juin 2026</span>
+      <span>Le calendrier de cette réforme a déjà été reporté à plusieurs reprises (initialement prévu en juillet 2024, puis en 2025). Les dates indiquées ci-dessous sont celles en vigueur à la date de mise à jour — vérifiez leur actualité auprès des sources officielles&nbsp;:
+        <span class="sources-row" style="margin-top:8px">
+          <a href="https://www.economie.gouv.fr" target="_blank" rel="noopener">economie.gouv.fr</a>
+          <a href="https://www.impots.gouv.fr" target="_blank" rel="noopener">impots.gouv.fr</a>
+          <a href="https://www.urssaf.fr" target="_blank" rel="noopener">urssaf.fr</a>
+        </span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- Calendrier -->
+<section class="section mist" data-screen-label="Calendrier">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Le calendrier de la réforme</p>
+      <h2>Deux échéances clés, toutes les entreprises concernées.</h2>
+      <p class="lead">L'entrée en vigueur est progressive selon la taille de l'entreprise — mais la réception de factures électroniques est obligatoire pour toutes dès la première date.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-dot all">Sep<br/>2026</div>
+        <div class="tl-body">
+          <div class="tl-date">1<sup>er</sup> septembre 2026</div>
+          <div class="tl-label">Toutes les entreprises · Réception</div>
+          <p>Toutes les entreprises assujetties à la TVA établies en France doivent être en capacité de <strong>recevoir</strong> des factures électroniques, quelle que soit leur taille.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot large">Sep<br/>2026</div>
+        <div class="tl-body">
+          <div class="tl-date">1<sup>er</sup> septembre 2026</div>
+          <div class="tl-label">Grandes entreprises &amp; ETI · Émission</div>
+          <p>Les grandes entreprises et entreprises de taille intermédiaire (ETI) doivent également <strong>émettre</strong> leurs factures en format électronique structuré dès cette date. L'e-reporting entre en vigueur en parallèle pour les opérations B2C et internationales.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot sme">Sep<br/>2027</div>
+        <div class="tl-body">
+          <div class="tl-date">1<sup>er</sup> septembre 2027</div>
+          <div class="tl-label">PME, TPE &amp; micro-entreprises · Émission</div>
+          <p>Les PME, TPE et micro-entreprises passent à leur tour à l'<strong>émission obligatoire</strong> de factures électroniques. Le délai supplémentaire d'un an est une opportunité de préparation — pas une raison de reporter l'adaptation des processus.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Champ d'application -->
+<section class="section" data-screen-label="Champ">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Champ d'application</p>
+      <h2>Qui est concerné, et qui ne l'est pas.</h2>
+    </div>
+    <div class="grid g3" style="margin-top:36px">
+      <div class="card reveal" style="padding:28px">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div>
+        <h3>Concerné</h3>
+        <p>Toute entreprise assujettie à la TVA établie en France métropolitaine et dans les <strong>DOM</strong> (Guadeloupe, Martinique, La Réunion, Guyane, Mayotte), pour ses opérations B2B domestiques.</p>
+      </div>
+      <div class="card reveal" style="padding:28px">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div>
+        <h3>Non concerné</h3>
+        <p>Les collectivités d'Outre-mer (COM : Polynésie française, Nouvelle-Calédonie, Saint-Pierre-et-Miquelon, etc.) et les entreprises non assujetties à la TVA ne sont pas visées par la réforme.</p>
+      </div>
+      <div class="card reveal" style="padding:28px">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>E-reporting</h3>
+        <p>Les opérations <strong>B2C</strong> (ventes aux particuliers) et les transactions <strong>internationales</strong> ne passent pas par la facturation électronique mais font l'objet d'un e-reporting périodique à l'administration fiscale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Formats -->
+<section class="section sand" data-screen-label="Formats">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Les formats acceptés</p>
+      <h2>Trois formats structurés, une plateforme agréée.</h2>
+      <p class="lead">Les factures doivent être transmises via une <strong>Plateforme de Dématérialisation Partenaire (PDP)</strong> agréée par l'État, ou la plateforme publique gratuite (PPF). Le choix de la plateforme conditionne les formats disponibles.</p>
+    </div>
+    <div class="format-grid">
+      <div class="format-card reveal">
+        <div class="fc-tag">Format hybride</div>
+        <div class="fc-name">Factur-X</div>
+        <div class="fc-desc">PDF lisible par l'humain avec données XML structurées intégrées. Le format le plus adopté en France pour sa compatibilité avec les workflows existants.</div>
+      </div>
+      <div class="format-card reveal">
+        <div class="fc-tag">Format XML pur</div>
+        <div class="fc-name">UBL</div>
+        <div class="fc-desc">Universal Business Language — standard international XML. Privilégié pour les échanges transfrontaliers et les grandes plateformes B2B.</div>
+      </div>
+      <div class="format-card reveal">
+        <div class="fc-tag">Format XML pur</div>
+        <div class="fc-name">CII</div>
+        <div class="fc-desc">Cross Industry Invoice — norme UN/CEFACT. Complémentaire à UBL, retenu comme format de référence par plusieurs plateformes agréées françaises.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sanctions -->
+<section class="section" data-screen-label="Sanctions">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Risques &amp; sanctions</p>
+      <h2>Ce que coûte la non-conformité.</h2>
+    </div>
+    <div class="sanction-box reveal">
+      <div class="sb-amount">15<span>€</span></div>
+      <div class="sb-body">
+        <b>par facture non conforme — plafond : 15 000 € / an</b>
+        <p>L'administration fiscale peut infliger une amende de 15 € par facture émise ou reçue hors format réglementaire. Au-delà de la sanction directe, une non-conformité génère des délais de paiement allongés, des difficultés de rapprochement comptable et un risque de retard dans la récupération de la TVA déductible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Accompagnement Alisey -->
+<section class="section navy" data-screen-label="Accompagnement">
+  <svg class="wind wind-hero" viewBox="0 0 380 150" fill="none" aria-hidden="true" style="opacity:.18;top:auto;bottom:4%;left:-60px;right:auto">
+    <path d="M40 24 H250 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#8bbfdf" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M10 58 H330 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#aad0e8" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M55 92 H270 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#c9a84c" stroke-width="3.4" stroke-linecap="round"/>
+  </svg>
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow plain" style="color:var(--sky)">Comment Alisey vous accompagne</p>
+      <h2>Absorber la transition, sans interrompre la production.</h2>
+      <p class="lead" style="color:#aebfd4">La réforme de la facturation électronique change les processus internes de facturation, de comptabilité et de déclaration. Alisey est votre appui opérationnel tout au long de cette transition.</p>
+    </div>
+    <div class="accom-grid">
+      <div class="accom-card reveal">
+        <div class="ac-num">01</div>
+        <h3>Choix &amp; paramétrage de la plateforme agréée</h3>
+        <p>Nous vous aidons à sélectionner la PDP adaptée à la taille de votre cabinet ou de votre entreprise, et nous pilotons le paramétrage initial pour une mise en route sans friction.</p>
+      </div>
+      <div class="accom-card reveal">
+        <div class="ac-num">02</div>
+        <h3>Adaptation des processus de facturation</h3>
+        <p>Révision des workflows existants, mise en conformité des modèles de factures avec les formats réglementaires, et intégration dans vos outils comptables actuels.</p>
+      </div>
+      <div class="accom-card reveal">
+        <div class="ac-num">03</div>
+        <h3>Montée en compétence de l'équipe externalisée</h3>
+        <p>L'équipe marocaine qui traite déjà vos dossiers est formée en continu aux formats Factur-X, UBL et CII — la transition réglementaire ne crée aucune rupture dans la qualité de production.</p>
+      </div>
+      <div class="accom-card reveal">
+        <div class="ac-num">04</div>
+        <h3>Suivi continu 2026-2027</h3>
+        <p>Un accompagnement sur toute la durée de la phase de transition : veille sur les évolutions du cadre réglementaire, ajustements si des reports de dates interviennent, et reporting de conformité partagé avec votre cabinet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq" data-screen-label="FAQ">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Questions fréquentes</p>
+      <h2>Ce qu'on nous demande le plus souvent.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="fq">Qu'est-ce que la facturation électronique (e-invoicing) ?</div>
+        <p>La facturation électronique consiste à émettre et recevoir des factures dans un format numérique structuré, lisible à la fois par un humain et par une machine. À la différence d'un simple PDF, ces factures respectent des formats standardisés (Factur-X, UBL, CII) et transitent via une plateforme agréée par l'État ou la plateforme publique gratuite (PPF). La réforme française rend ce dispositif obligatoire pour toutes les entreprises assujetties à la TVA à partir de septembre 2026.</p>
+      </div>
+      <div class="faq-item reveal">
+        <div class="fq">Mon entreprise est-elle concernée par cette réforme ?</div>
+        <p>Oui, dès lors que votre entreprise est assujettie à la TVA et établie en France (y compris les DOM, mais pas les collectivités d'Outre-mer). Les grandes entreprises et ETI devront émettre et recevoir des factures électroniques à compter du 1<sup>er</sup> septembre 2026. Les PME, TPE et micro-entreprises devront également émettre des factures électroniques à compter du 1<sup>er</sup> septembre 2027. La réception est obligatoire pour toutes les entreprises dès la première échéance.</p>
+      </div>
+      <div class="faq-item reveal">
+        <div class="fq">Quelle est la différence entre facturation électronique et e-reporting ?</div>
+        <p>La facturation électronique (e-invoicing) concerne les opérations B2B entre entreprises assujetties à la TVA établies en France : les factures transitent directement via une plateforme agréée ou la PPF. L'e-reporting couvre les autres transactions — ventes aux particuliers (B2C) et opérations à l'international — pour lesquelles l'entreprise transmet périodiquement les données de transaction à l'administration fiscale. Les deux dispositifs suivent le même calendrier de mise en œuvre.</p>
+      </div>
+      <div class="faq-item reveal">
+        <div class="fq">Que risque mon entreprise en cas de non-conformité ?</div>
+        <p>L'administration fiscale peut infliger une amende de 15 € par facture non conforme, plafonnée à 15 000 € par an. Au-delà de la sanction financière directe, une non-conformité peut entraîner des délais de paiement allongés, des difficultés de rapprochement comptable et un retard dans la récupération de la TVA déductible. Se préparer en amont avec un partenaire maîtrisant ces formats permet d'éviter ces risques opérationnels.</p>
+      </div>
+      <div class="faq-item reveal">
+        <div class="fq">Comment Alisey peut-elle m'aider à me préparer à cette transition ?</div>
+        <p>Alisey vous accompagne à chaque étape : aide au choix et au paramétrage d'une Plateforme Agréée adaptée à votre situation, adaptation des processus de facturation et de comptabilité aux nouveaux formats, formation de l'équipe externalisée (Factur-X, UBL, CII), et suivi continu pendant toute la phase de transition 2026-2027. Votre production comptable continue sans interruption, quelles que soient les évolutions réglementaires.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SÉPARATEUR ============================== -->
+<hr class="section-divider" />
+
+<!-- ============================== AUTRES ACTUALITÉS ============================== -->
 <section class="section" data-screen-label="Actualités">
   <div class="wrap">
+    <div class="section-head" style="margin-bottom:32px">
+      <p class="eyebrow">Autres actualités</p>
+      <h2>DSN, TVA, liasse fiscale — la veille du moment.</h2>
+    </div>
 
     <div class="filter-bar" id="filter-bar">
       <button class="filter-btn active" data-cat="all">Tout</button>
-      <button class="filter-btn" data-cat="Facturation">Facturation</button>
       <button class="filter-btn" data-cat="Social">Social</button>
       <button class="filter-btn" data-cat="Fiscalité">Fiscalité</button>
     </div>
 
     <div class="news-grid" id="news-grid">
-
-      <!-- Article 1 — Facturation électronique (à la une) -->
-      <div class="news-card featured reveal" data-cat="Facturation">
-        <div class="nc-meta">
-          <span class="nc-date">21 juin 2026</span>
-          <span class="nc-cat cat-facturation">Facturation</span>
-        </div>
-        <div class="nc-title">Réforme de la facturation électronique : ce que votre cabinet doit mettre en place avant septembre 2026</div>
-        <p class="nc-summary">À partir du 1<sup>er</sup> septembre 2026, toutes les entreprises assujetties à la TVA devront être en capacité de recevoir des factures électroniques. Les grandes entreprises et ETI devront également les émettre à cette date ; les PME et TPE suivront en septembre 2027. Les formats acceptés sont Factur-X, UBL et CII, via une Plateforme de Dématérialisation Partenaire (PDP) agréée ou la plateforme publique gratuite. Un délai à anticiper dès maintenant pour adapter les processus et former les équipes.</p>
-        <a class="nc-link" href="facturation-electronique.html">Lire le guide complet <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
 
       <!-- Article 2 — DSN BTP / CIBTP -->
       <div class="news-card reveal" data-cat="Social">
@@ -190,7 +513,7 @@
         <a class="nc-link" href="#tva-autoliquidation">Lire la suite <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
 
-      <!-- Article 4 — Amortissements dérogatoires Article 236 CGI -->
+      <!-- Article 4 — Amortissements dérogatoires -->
       <div class="news-card reveal" data-cat="Fiscalité">
         <div class="nc-meta">
           <span class="nc-date">Avril 2026</span>
@@ -214,7 +537,7 @@
       <p class="lead">Chaque évolution réglementaire a un impact sur votre production. Nous anticipons ces impacts pour vous.</p>
       <div style="display:flex;gap:14px;justify-content:center;margin-top:30px;flex-wrap:wrap">
         <a class="btn btn-primary" href="contact.html">Nous contacter</a>
-        <a class="btn btn-ghost" href="facturation-electronique.html">Guide facturation électronique</a>
+        <a class="btn btn-ghost" href="#facturation-electronique">Guide facturation électronique ↑</a>
       </div>
     </div>
   </div>
@@ -237,9 +560,9 @@
           <li><a href="demarche.html">Démarche &amp; philosophie</a></li>
           <li><a href="nous.html">Nous</a></li>
           <li><a href="index.html#references">Références</a></li>
-          <li><a href="facturation-electronique.html">Facture électronique</a></li>
-          <li><a href="actualite-reglementaire.html">Veille réglementaire</a></li>
+          <li><a href="actualite-reglementaire.html">Actue</a></li>
           <li><a href="outils.html">Outils</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       <div>

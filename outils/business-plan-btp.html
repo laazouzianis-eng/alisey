@@ -80,6 +80,10 @@
   .seg-track { flex: 1; height: 10px; background: var(--mist); border-radius: 999px; overflow: hidden; }
   .seg-fill { height: 100%; border-radius: 999px; background: var(--blue); transition: width .6s ease; }
   .seg-pct { font-family: var(--font-mono); font-size: 12px; color: var(--blue); width: 40px; text-align: right; flex: none; }
+  @media (max-width: 480px) {
+    .seg-label { width: 110px; font-size: 12px; }
+    .seg-pct { width: 36px; font-size: 11px; }
+  }
 
   /* ---- Simulateur ---- */
   .sim-layout {

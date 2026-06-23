@@ -165,6 +165,13 @@
     color: var(--sky); background: rgba(139,191,223,.12);
     padding: 2px 6px; border-radius: 4px;
   }
+
+  /* Mobile : .mark (white-space:nowrap dans alisey.css) déborde et est coupé
+     par overflow:hidden du .page-head. On autorise le retour à la ligne. */
+  @media (max-width: 600px) {
+    .page-head h1 .mark { white-space: normal; }
+    .page-head h1 { font-size: clamp(30px, 7.5vw, 40px); }
+  }
 </style>
 </head>
 <body>
@@ -240,6 +247,36 @@
     </div>
 
     <div class="bp-grid" id="bp-grid">
+
+      <!-- Application Business Plan — interactive, pleine largeur -->
+      <a class="bp-card featured reveal featured-app" href="./application-business-plan/"
+         style="grid-column: 1 / -1; border: 2px solid var(--navy); background: linear-gradient(135deg, var(--mist) 0%, #fff 70%);">
+        <div class="bp-meta">
+          <span class="bp-tag" style="background:rgba(27,58,107,.08);color:var(--navy);border-color:rgba(27,58,107,.2);">Application interactive</span>
+          <span class="bp-tag">Négoce</span>
+          <span class="bp-tag">Service</span>
+          <span class="bp-tag" style="margin-left:auto;background:rgba(201,168,76,.1);color:var(--accent);border-color:rgba(201,168,76,.3);">Disponible — Bêta</span>
+        </div>
+        <div style="display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap;">
+          <div class="bp-ico" style="background:rgba(27,58,107,.1);color:var(--navy);width:56px;height:56px;border-radius:var(--radius-lg);flex:none;">
+            <svg viewBox="0 0 24 24" style="width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <div style="flex:1;min-width:220px;">
+            <h3 style="font-size:19px;margin-bottom:8px;">Application Business Plan — Prévisionnel 3 ans</h3>
+            <p style="margin-bottom:16px;">Simulateur financier interactif : saisissez vos hypothèses et obtenez en temps réel un compte de résultat, BFR, trésorerie et seuil de rentabilité sur 3 exercices. Export PowerPoint brandé Alisey et Excel inclus.</p>
+            <ul class="bp-features" style="margin-bottom:20px;">
+              <li>Compte de résultat N / N+1 / N+2, IS 25 %</li>
+              <li>BFR (méthode des délais) &amp; cash-flow opérationnel</li>
+              <li>Export PowerPoint 6 slides palette Alisey + Excel 5 feuilles</li>
+              <li>Secteurs : Négoce et Service — autres en cours de développement</li>
+            </ul>
+            <span class="bp-cta">
+              Ouvrir l'application
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </div>
+      </a>
 
       <!-- BTP — disponible -->
       <a class="bp-card featured reveal" href="outils/business-plan-btp.html" data-sector="btp">
@@ -481,7 +518,7 @@
       btn.classList.add('active');
       var sector = btn.dataset.sector;
       cards.forEach(function (card) {
-        card.style.display = (sector === 'all' || card.dataset.sector === sector) ? '' : 'none';
+        card.style.display = (sector === 'all' || card.classList.contains('featured-app') || card.dataset.sector === sector) ? '' : 'none';
       });
     });
   });

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4J2G7X419W"></script>
+<script src="/assets/analytics.js"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TVA en auto-liquidation dans le BTP : mécanisme, écritures et risques comptables | Alisey</title>
+<meta name="description" content="Auto-liquidation de la TVA dans le BTP (art. 283 CGI) : mécanisme, écritures comptables symétriques, erreurs fréquentes en sous-traitance et risques de redressement fiscal pour les cabinets." />
+<link rel="canonical" href="https://www.alisey.fr/actualite-reglementaire/tva-autoliquidation-btp.html" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="../alisey.css" />
+
+<style>
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 28px; flex-wrap: wrap; }
+  .breadcrumb a { color: var(--blue); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb .sep { color: var(--line-cool); }
+
+  .article-body { max-width: 780px; }
+  .article-body h2 { font-family: var(--font-display); font-size: clamp(20px, 2vw, 24px); font-weight: 600; color: var(--navy); margin: 36px 0 12px; }
+  .article-body p { color: var(--ink-soft); font-size: 15.5px; line-height: 1.7; margin-bottom: 16px; }
+  .article-body ul { margin: 0 0 16px 0; padding-left: 22px; }
+  .article-body ul li { color: var(--ink-soft); font-size: 15.5px; line-height: 1.7; margin-bottom: 8px; }
+  .article-body strong { color: var(--navy); }
+
+  .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; flex-wrap: wrap; }
+  .article-meta .am-date { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
+  .article-meta .am-cat { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; padding: 4px 12px; border-radius: 999px; background: #dcfce7; color: #166534; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-sans); font-size: 14px; font-weight: 600; color: var(--blue); text-decoration: none; margin-top: 40px; }
+  .back-link svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .back-link:hover { color: var(--navy); }
+
+  .highlight-box { background: var(--mist); border: 1px solid var(--line-cool); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 20px 24px; margin: 24px 0; }
+  .highlight-box p { margin-bottom: 0; font-size: 14.5px; }
+
+  .ecriture-block { background: var(--paper); border: 1px solid var(--line-cool); border-radius: var(--radius); padding: 22px 26px; margin: 20px 0; font-family: var(--font-mono); font-size: 13px; color: var(--navy); line-height: 1.8; }
+  .ecriture-block .ec-head { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+
+  .related-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--line-cool); }
+  .related-links a { font-family: var(--font-sans); font-size: 13.5px; font-weight: 600; color: var(--blue); text-decoration: none; padding: 8px 16px; border: 1px solid var(--line-cool); border-radius: 999px; }
+  .related-links a:hover { background: var(--mist); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "TVA en auto-liquidation dans le BTP : mécanisme, écritures et risques comptables",
+  "description": "Auto-liquidation de la TVA dans le BTP (art. 283 CGI) : mécanisme, écritures comptables symétriques, erreurs fréquentes en sous-traitance et risques de redressement fiscal.",
+  "datePublished": "2026-05-01",
+  "dateModified": "2026-07-11",
+  "author": { "@type": "Organization", "name": "Alisey", "url": "https://www.alisey.fr" },
+  "publisher": { "@type": "Organization", "name": "Alisey", "url": "https://www.alisey.fr", "logo": { "@type": "ImageObject", "url": "https://www.alisey.fr/assets/alisey-logo.png" } },
+  "url": "https://www.alisey.fr/actualite-reglementaire/tva-autoliquidation-btp.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.alisey.fr/" },
+    { "@type": "ListItem", "position": 2, "name": "Actualité réglementaire", "item": "https://www.alisey.fr/actualite-reglementaire.html" },
+    { "@type": "ListItem", "position": 3, "name": "TVA auto-liquidation BTP", "item": "https://www.alisey.fr/actualite-reglementaire/tva-autoliquidation-btp.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ============================== NAV ============================== -->
+<header class="nav" data-screen-label="Nav">
+  <div class="nav-inner">
+    <a href="../index.html"><img class="logo" src="../assets/alisey-logo.png" alt="Alisey — Cap sur le BPO" /></a>
+    <nav class="nav-links">
+      <a href="../index.html">Accueil</a>
+      <a href="../index.html#services">Services</a>
+      <a href="../plateforme.html">Plateforme</a>
+      <a href="../demarche.html">Démarche</a>
+      <a href="../nous.html">Nous</a>
+      <a href="../actualite-reglementaire.html" class="active">Actualité</a>
+      <a href="../outils.html">Outils</a>
+      <a href="../index.html#references">Références</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-lock" href="../espace-client.html">Espace client</a>
+      <a class="btn btn-primary" href="../contact.html">Nous contacter</a>
+    </div>
+    <button class="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nav-panel">
+    <a href="../index.html">Accueil</a>
+    <a href="../index.html#services">Services</a>
+    <a href="../plateforme.html">Plateforme</a>
+    <a href="../demarche.html">Démarche</a>
+    <a href="../nous.html">Nous</a>
+    <a href="../actualite-reglementaire.html" class="active">Actualité</a>
+    <a href="../outils.html">Outils</a>
+    <a href="../index.html#references">Références</a>
+    <div class="nav-panel-cta">
+      <a class="btn btn-ghost btn-lock" href="../espace-client.html">Espace client</a>
+      <a class="btn btn-primary" href="../contact.html">Nous contacter</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ============================== PAGE HEADER ============================== -->
+<section class="page-head" data-screen-label="En-tête">
+  <svg class="wind wind-hero" viewBox="0 0 380 150" fill="none" aria-hidden="true" style="height:120px">
+    <path d="M40 24 H250 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#8bbfdf" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M10 58 H330 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#1b3a6b" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M55 92 H270 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#1b6fa8" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M30 126 H300 a13 13 0 1 1 -9 12 a7 7 0 1 0 5 -7" stroke="#c9a84c" stroke-width="3.4" stroke-linecap="round"/>
+  </svg>
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="../index.html">Accueil</a>
+      <span class="sep">/</span>
+      <a href="../actualite-reglementaire.html">Actualité réglementaire</a>
+      <span class="sep">/</span>
+      <span>TVA auto-liquidation BTP</span>
+    </nav>
+    <p class="eyebrow">Fiscalité · Mai 2026</p>
+    <h1>TVA en auto-liquidation dans le BTP : mécanisme, écritures et risques comptables</h1>
+    <p class="lead">Le mécanisme d'auto-liquidation de la TVA est fréquemment source d'erreurs dans les dossiers BTP. Maîtriser les écritures symétriques et identifier les cas d'application est indispensable pour éviter les redressements.</p>
+  </div>
+</section>
+
+<!-- ============================== ARTICLE ============================== -->
+<section class="section" data-screen-label="Article">
+  <div class="wrap">
+    <div class="article-body">
+
+      <div class="article-meta">
+        <span class="am-date">Mai 2026</span>
+        <span class="am-cat">Fiscalité</span>
+      </div>
+
+      <h2>Principe de l'auto-liquidation de la TVA</h2>
+      <p>Le mécanisme d'auto-liquidation de la TVA, codifié à l'<strong>article 283-2 nonies du Code général des impôts</strong>, transfère l'obligation de déclarer et d'acquitter la TVA du sous-traitant vers le donneur d'ordre, dans les marchés de travaux immobiliers réalisés par des sous-traitants. En clair : le sous-traitant facture hors taxes, et c'est l'entreprise principale qui déclare à la fois la TVA collectée (qu'elle doit) et la TVA déductible (qu'elle récupère), sur les mêmes montants.</p>
+      <p>Ce dispositif a été introduit pour lutter contre la fraude à la TVA en chaîne dans le BTP, où des sous-traitants fictifs encaissaient la TVA sans la reverser à l'État. Il s'applique exclusivement aux travaux de construction, rénovation, nettoyage ou entretien d'immeubles, réalisés par des sous-traitants au profit d'assujettis à la TVA.</p>
+
+      <h2>Quand l'auto-liquidation s'applique-t-elle ?</h2>
+      <p>L'auto-liquidation s'applique dès lors que <strong>trois conditions sont réunies simultanément</strong> :</p>
+      <ul>
+        <li>Le prestataire est un <strong>sous-traitant</strong> au sens légal (il réalise tout ou partie du marché confié par un donneur d'ordre, qui reste responsable envers le maître d'ouvrage) ;</li>
+        <li>La prestation porte sur des <strong>travaux immobiliers</strong> (construction, rénovation, démolition, nettoyage, entretien d'immeuble) ;</li>
+        <li>Le <strong>donneur d'ordre est assujetti à la TVA</strong> et établi en France.</li>
+      </ul>
+      <p>Ce mécanisme ne s'applique pas aux livraisons de matériaux seuls, aux prestations intellectuelles liées au chantier (maîtrise d'œuvre, bureau d'études), ni aux marchés directs avec le maître d'ouvrage.</p>
+
+      <h2>Les écritures comptables : la symétrie TVA collectée / TVA déductible</h2>
+      <p>Côté <strong>donneur d'ordre</strong>, la réception d'une facture HT d'un sous-traitant génère deux écritures simultanées :</p>
+
+      <div class="ecriture-block">
+        <div class="ec-head">Exemple — Facture sous-traitant : 10 000 € HT, TVA auto-liquidée 20 % = 2 000 €</div>
+        <div>D 411 / C 604 ou 61x … 10 000 € (réception facture HT)</div>
+        <div>D 44566 TVA déductible … 2 000 € (TVA récupérable)</div>
+        <div>C 44571 TVA collectée … 2 000 € (TVA à déclarer)</div>
+      </div>
+
+      <p>Ces deux mouvements s'annulent économiquement (la TVA est neutre pour le donneur d'ordre assujetti), mais ils doivent impérativement <strong>apparaître tous les deux sur la déclaration CA3</strong> : la TVA collectée est portée en ligne "auto-liquidation des livraisons à soi-même et acquisitions", et la TVA déductible est reportée en ligne déduction normale.</p>
+
+      <p>Côté <strong>sous-traitant</strong>, la facture est émise HT avec la mention obligatoire "Autoliquidation — TVA non applicable, art. 283-2 nonies du CGI". Il ne comptabilise aucune TVA.</p>
+
+      <h2>Les erreurs fréquentes en production</h2>
+      <p>Deux erreurs reviennent systématiquement dans les dossiers BTP :</p>
+      <ul>
+        <li><strong>Omission de la TVA côté donneur d'ordre :</strong> le comptable traite la facture du sous-traitant comme une facture HT ordinaire (déduction simple), sans comptabiliser la TVA collectée correspondante. Résultat : la TVA collectée est sous-déclarée, ce qui constitue un manquement fiscal susceptible de redressement ;</li>
+        <li><strong>Facturation de TVA par le sous-traitant :</strong> le sous-traitant ignore le mécanisme et facture avec TVA, comme pour n'importe quel client. Le donneur d'ordre ne peut pas déduire cette TVA (elle est facturée à tort), et le sous-traitant doit la reverser sans pouvoir la récupérer — double peine pour les deux parties.</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p><strong>À vérifier systématiquement :</strong> la mention légale "Autoliquidation" doit figurer explicitement sur la facture du sous-traitant. Son absence n'exonère pas le donneur d'ordre de l'obligation d'auto-liquider, mais rend la situation plus difficile à défendre lors d'un contrôle fiscal.</p>
+      </div>
+
+      <h2>Risques en cas d'erreur</h2>
+      <p>Du côté du <strong>donneur d'ordre</strong> qui omet de déclarer la TVA collectée, le risque est un <strong>rappel de TVA</strong> assorti des intérêts de retard (0,20 % par mois) et d'une majoration de 5 % à 40 % selon la nature du manquement. Si l'administration considère que l'omission est délibérée, la majoration peut atteindre 80 %.</p>
+      <p>Du côté du <strong>sous-traitant</strong> qui facture à tort de la TVA, il doit reverser cette TVA à l'État même si le client ne la lui a pas payée — l'émission de la facture suffit à créer la dette fiscale.</p>
+
+      <h2>Comment Alisey sécurise vos dossiers BTP</h2>
+      <p>Les dossiers BTP externalisés chez Alisey font l'objet d'un protocole de contrôle dédié : identification systématique des factures de sous-traitance, vérification de la mention légale, comptabilisation des écritures symétriques et contrôle de cohérence avec la déclaration CA3. Les équipes sont formées aux particularités fiscales du BTP, notamment à la distinction entre auto-liquidation de droit commun et auto-liquidation BTP.</p>
+      <p>Pour en savoir plus sur la <a href="../index.html#services">mission comptable Alisey</a> ou transférer des dossiers BTP, <a href="../contact.html">prenez contact avec notre équipe</a>.</p>
+
+      <div class="related-links">
+        <a href="dsn-cibtp-btp.html">DSN et CIBTP dans le BTP →</a>
+        <a href="amortissements-derogatoires-article-236-cgi.html">Amortissements dérogatoires et art. 236 CGI →</a>
+        <a href="../outils.html">Outils pratiques →</a>
+      </div>
+
+      <a class="back-link" href="../actualite-reglementaire.html">
+        <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Retour à l'actualité réglementaire
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CTA CONTACT ============================== -->
+<section class="section sand" data-screen-label="Contact">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow">Une question sur la TVA BTP ?</p>
+      <h2>Votre équipe Alisey fait le point avec vous.</h2>
+      <p class="lead">TVA auto-liquidation, CA3, contrôles fiscaux — Alisey sécurise votre production comptable BTP.</p>
+      <div style="display:flex;gap:14px;justify-content:center;margin-top:30px;flex-wrap:wrap">
+        <a class="btn btn-primary" href="../contact.html">Nous contacter</a>
+        <a class="btn btn-ghost" href="../actualite-reglementaire.html">Toute l'actualité réglementaire</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="footer" data-screen-label="Footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <img class="logo" src="../assets/alisey-logo-light.png" alt="Alisey" />
+        <p>L'externalisation comptable et sociale aux standards français. Cap sur le BPO — le vent dans le dos.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="../index.html#services">Services</a></li>
+          <li><a href="../plateforme.html">Plateforme</a></li>
+          <li><a href="../demarche.html">Démarche &amp; philosophie</a></li>
+          <li><a href="../nous.html">Nous</a></li>
+          <li><a href="../index.html#references">Références</a></li>
+          <li><a href="../actualite-reglementaire.html">Actualité réglementaire</a></li>
+          <li><a href="../outils.html">Outils</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="../contact.html">Formulaire de contact</a></li>
+          <li><a href="#">Bd Zoulikha NACIRI, Florida 5, N°59 — Sidi Maarouf, Casablanca</a></li>
+          <li><a href="#">210, Bd ABDELMOUMEN, Les Jardins Abdelmoumen, Imm. G2, Appt N°7 — Casablanca</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Accès</h4>
+        <ul>
+          <li><a href="../espace-client.html">Espace client</a></li>
+          <li><a href="#">Connexion plateforme</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Alisey — Cap sur le BPO. Tous droits réservés.</span>
+      <span class="chips">
+        <span class="chip on-dark">Conforme RGPD</span>
+        <span class="chip on-dark">Standards français</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+</body>
+</html>
